@@ -1,0 +1,15 @@
+日志系统:
+    1.unique_ptr对于检查错误的帮助,如AsyncLogging.h用它管理Buffer,不仅实现了RTTI,而且帮助我发现了没有使用move()转为右值的问题,因为
+unique_ptr发现了我使用push_back时的拷贝缓冲区,编译时便报错了,让我修改了bug
+    2.FileUtil.h实现的类AppenFile做为最底层与文件打交道的类,因为只有日志后端线程唯一的拥有这样一个类的unique_ptr,所以理论上写文件不用
+加锁,可以用效率高的多的fwrite_unlocked,而且使用了setbuffer为文件创立了在用户栈上缓冲区,只有每3次append才会fflush,减少了磁盘IO次数.
+    3.日志前端即使用宏LOG_TRACE等输出日志信息的线程,会进入AsyncLogging类,使用其成员函数append,并用了AsyncLogging类的数据成员currentBufeer
+和nextBuffer_作为前端日志缓冲区,日志前端需要全程加锁,不过临界区很短,nextBuffer_和currentBuffer_的切换也采用的移动语义,一但当前的currentBuffer
+写满了则会切换,并在临界区结束前唤醒日志后端线程.
+    4.日志后端线程全程运行在AsyncLogging类的threadFunc()中,并时刻提供了两个全新的缓冲区buffer,用来快速替换日志前端的缓冲Buffer,并且使用了
+临时量vector交换方法,将前后端对应临界区降至最低,基本上只有几次移动替换缓冲区的过程,最大限度的降低的前后端的竞争.
+    5.日志后端的逻辑,大致为前端写满了一个Buffer就通过条件变量唤醒,或者超时唤醒.Logging线程全程存在于程序的运行期.
+    6.CountDownLatch,我称之为记数门阀,是一种线程同步手段,其中前面的线程完成了某些条件便会减少门阀计数,当计数为0则使用条件变量唤醒等在门前的
+后面的线程.
+    7.整个日志逻辑: 生成LogStream类,其中有个临时Buffer,一行"<<"的都写在这个临时Buffer里面,然后这行结束,类自动析构,析沟时会往日志前端写日志,
+接着则是前后端日志的逻辑了.这样对外提供了非常简洁易用的接口,而隐藏了复杂的日志内部细节.
