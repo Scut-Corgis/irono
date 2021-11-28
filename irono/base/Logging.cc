@@ -1,6 +1,7 @@
 #include "Logging.h"
 #include <string>
 #include <sys/time.h>
+#include "CurrentThread.h"
 #include "AsyncLogging.h"
 namespace irono {
 
@@ -12,6 +13,7 @@ const char* LogLevelName[Logger::NUM_LOG_LEVELS] =
 {
   "TRACE ",
   "DEBUG ",
+  "FATAL ",
 };
 
 void defaultOutput(const char* msg, int len) {
@@ -47,6 +49,9 @@ Logger::Impl::Impl(const char* filename, int line, LogLevel level)
       filename_(filename)
 {
     formatTime();
+    stream_<<LogLevelName[level];
+    CurrentThread::tid();
+    stream_<<CurrentThread::t_tidString<<" ";
 }
 
 void Logger::Impl::formatTime() {

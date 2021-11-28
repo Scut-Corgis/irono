@@ -11,6 +11,7 @@ public:
     enum LogLevel {
         TRACE,
         DEBUG,
+        FATAL,
         NUM_LOG_LEVELS,
     };
 
@@ -50,5 +51,7 @@ inline Logger::LogLevel Logger::logLevel() {
     irono::Logger(__FILE__, __LINE__, irono::Logger::TRACE).stream()
 #define LOG_DEBUG if (irono::Logger::LogLevel() <= irono::Logger::DEBUG) \
     irono::Logger(__FILE__, __LINE__, irono::Logger::DEBUG).stream()
+#define LOG_FATAL if (irono::Logger::LogLevel() <= irono::Logger::FATAL) \
+    irono::Logger(__FILE__, __LINE__, irono::Logger::FATAL).stream()
 
 }

@@ -23,6 +23,8 @@ MutexLock mutex;
 int main() {
     LOG_DEBUG<<"progame has been started";
     int k = 50;
+    LOG_TRACE<<" ";
+    LOG_FATAL<<" ";
     // Thread mythread1(ThreadFunc, "testThread1");
     // Thread mythread2(ThreadFunc, "testThread2");
     // mythread1.start();
