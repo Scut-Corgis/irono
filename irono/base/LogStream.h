@@ -36,10 +36,14 @@ private:
 class LogStream : noncopyable {
 public:
     typedef FixedBuffer<kSmallBuffer> Buffer;
-    void formatInteger(int v);
+    template<typename T>
+    void formatInteger(T);
     LogStream& operator<<(const char* str);
     LogStream& operator<<(const std::string& v);
+    LogStream& operator<<(unsigned int);
     LogStream& operator<<(int v);
+    LogStream& operator<<(long v);
+    LogStream& operator<<(unsigned long v);
     LogStream& operator<<(char v);
     LogStream& operator<<(const void* v);
     const Buffer& buffer() const {return buffer_;}

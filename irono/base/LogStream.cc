@@ -76,11 +76,24 @@ LogStream& LogStream::operator<<(int v) {
     formatInteger(v);
     return *this;
 }
+LogStream& LogStream::operator<<(unsigned int v) {
+    formatInteger(v);
+    return *this;
+}
+LogStream& LogStream::operator<<(long v) {
+    formatInteger(v);
+    return *this;
+}
 LogStream& LogStream::operator<<(char v) {
     buffer_.append(&v, 1);
     return *this;
 }
-void LogStream::formatInteger(int v) {
+LogStream& LogStream::operator<<(unsigned long v) {
+    formatInteger(v);
+    return *this;
+}
+template <typename T>
+void LogStream::formatInteger(T v) {
     if (buffer_.avail() >= kMaxNumericSize) {
         size_t len = convert(buffer_.current(), v);
         buffer_.add(len);
