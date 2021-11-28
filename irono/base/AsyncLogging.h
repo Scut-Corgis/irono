@@ -8,7 +8,7 @@
 #include "Condition.h"
 #include "noncopyable.h"
 #include "LogStream.h"
-
+#include "LogFile.h"
 namespace irono {
 
 class AsyncLogging : noncopyable {
@@ -38,6 +38,8 @@ public:
     thread_.join();
   }
 
+  LogFile& output() {return output_;}
+
  private:
 
   void threadFunc();
@@ -56,6 +58,7 @@ public:
   BufferPtr currentBuffer_ ;
   BufferPtr nextBuffer_ ;
   BufferVector buffers_ ;
+  LogFile output_;
 };
 
 }

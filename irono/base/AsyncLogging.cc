@@ -14,7 +14,9 @@ AsyncLogging::AsyncLogging(const std::string& logFileName, int flushInterval)
       currentBuffer_(new Buffer),
       nextBuffer_(new Buffer),
       buffers_(),
-      latch_(1) {
+      latch_(1),
+      output_(logFileName) 
+{
     currentBuffer_->bzero();
     nextBuffer_->bzero();
     buffers_.reserve(16);
@@ -47,7 +49,7 @@ void AsyncLogging::threadFunc()
 {
   assert(running_ == true);
   latch_.countDown();
-  LogFile output(basename_);
+  //LogFile output(basename_);
   BufferPtr newBuffer1(new Buffer);
   BufferPtr newBuffer2(new Buffer);
   newBuffer1->bzero();
@@ -91,7 +93,7 @@ void AsyncLogging::threadFunc()
     for (const auto& buffer : buffersToWrite)
     {
       // FIXME: use unbuffered stdio FILE ? or use ::writev ?
-      output.append(buffer->data(), buffer->length());
+      output_.append(buffer->data(), buffer->length());
     }
 
     if (buffersToWrite.size() > 2)
@@ -117,9 +119,9 @@ void AsyncLogging::threadFunc()
     }
 
     buffersToWrite.clear();
-    output.flush();
+    output_.flush();
   }
-  output.flush();
+  output_.flush();
 }
 
 }

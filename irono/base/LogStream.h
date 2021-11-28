@@ -41,6 +41,7 @@ public:
     LogStream& operator<<(const std::string& v);
     LogStream& operator<<(int v);
     LogStream& operator<<(char v);
+    LogStream& operator<<(const void* v);
     const Buffer& buffer() const {return buffer_;}
 private:
     Buffer buffer_;

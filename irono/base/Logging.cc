@@ -40,6 +40,12 @@ Logger::~Logger() {
     impl_.stream_ << " -- " << impl_.filename_ << ":" << impl_.line_ << '\n';
     const LogStream::Buffer& buf(stream().buffer());
     g_output(buf.data(), buf.length());
+    if (impl_.level_ == FATAL) {
+    //等待几秒是为了等前端缓冲区刷到后端去后，再flush()写到磁盘，不等待就会失败，目前还没想到怎么改
+    sleep(5);
+    AsyncLogger_->output().flush();
+    abort();
+  }
 }
 
 Logger::Impl::Impl(const char* filename, int line, LogLevel level) 

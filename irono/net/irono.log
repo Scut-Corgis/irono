@@ -1,0 +1,14 @@
+2021-11-28 13:08:32 TRACE 138080  sss -- test1.cc:24
+2021-11-28 13:09:57 TRACE 138241  EventLoop created 0x7FFE73A710B8 in thread 138241 -- EventLoop.cc:15
+2021-11-28 13:09:57 FATAL 138243  EventLoop::abortNotInLoopThread - EventLoop 0x7FFE73A710B8 was created in threadId_ = 138241, current thread id = 138243 -- EventLoop.cc:48
+2021-11-28 13:11:21 TRACE 138447  EventLoop created 0x7FFEDC3F7B58 in thread 138447 -- EventLoop.cc:15
+2021-11-28 13:11:21 FATAL 138449  EventLoop::abortNotInLoopThread - EventLoop 0x7FFEDC3F7B58 was created in threadId_ = 138447, current thread id = 138449 -- EventLoop.cc:48
+2021-11-28 13:13:37 TRACE 138719  EventLoop created 0x7FFEBBE7ABE8 in thread 138719 -- EventLoop.cc:15
+2021-11-28 13:13:37 FATAL 138721  EventLoop::abortNotInLoopThread - EventLoop 0x7FFEBBE7ABE8 was created in threadId_ = 138719, current thread id = 138721 -- EventLoop.cc:47
+2021-11-28 13:18:38 TRACE 139289  EventLoop created 0x7FFFFFFFCB68 in thread 139289 -- EventLoop.cc:15
+2021-11-28 13:20:34 TRACE 139544  EventLoop created 0x7FFFFFFFCB68 in thread 139544 -- EventLoop.cc:15
+2021-11-28 13:34:25 TRACE 140864  EventLoop created 0x7FFF894257F8 in thread 140864 -- EventLoop.cc:15
+2021-11-28 13:34:25 FATAL 140866  EventLoop::abortNotInLoopThread - EventLoop 0x7FFF894257F8 was created in threadId_ = 140864, current thread id = 140866 -- EventLoop.cc:47
+2021-11-28 13:37:08 TRACE 141031  EventLoop created 0x7FFCE8ECAD30 in thread 141031 -- EventLoop.cc:15
+2021-11-28 13:37:08 TRACE 141031  EventLoop created 0x7FFCE8ECAD38 in thread 141031 -- EventLoop.cc:15
+2021-11-28 13:37:08 FATAL 141031  Another EventLoop 0x7FFCE8ECAD30 exists in this thread 141031 -- EventLoop.cc:18
