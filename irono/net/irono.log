@@ -1,4 +1,3 @@
-2021-11-28 16:11:58 TRACE 145107  EventLoop created 0x7FFFFFFFDB70 in thread 145107 -- EventLoop.cc:16
-2021-11-28 16:15:47 TRACE 145751  EventLoop created 0x7FFFFFFFDB70 in thread 145751 -- EventLoop.cc:16
-2021-11-28 16:27:23 TRACE 147381  EventLoop created 0x7FFDE340CD80 in thread 147381 -- EventLoop.cc:17
-2021-11-28 16:27:23 TRACE 147381  fd = 4 events = 3 -- Poller.cc:59
+2021-11-28 23:05:17 TRACE 162113  fd = 3 events = 3 -- Poller.cc:58
+2021-11-28 23:05:17 TRACE 162113  EventLoop created 0x7FFFF7A4CCA0 in thread 162113 -- EventLoop.cc:32
+2021-11-28 23:05:18 FATAL 162112  EventLoop::abortNotInLoopThread - EventLoop 0x7FFFF7A4CCA0 was created in threadId_ = 162113, current thread id = 162112 -- EventLoop.cc:124

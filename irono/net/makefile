@@ -1,3 +1,3 @@
-main: test1.o EventLoop.o Poller.o Channel.o ../base/AsyncLogging.o ../base/CountDownLatch.o ../base/FileUtil.o ../base/LogFile.o ../base/Logging.o ../base/LogStream.o ../base/Thread.o ../base/Timestamp.o
-		g++ -g -o test1 test1.o EventLoop.o Poller.o Channel.o ../base/AsyncLogging.o ../base/CountDownLatch.o ../base/FileUtil.o ../base/LogFile.o ../base/Logging.o ../base/LogStream.o ../base/Thread.o ../base/Timestamp.o -pthread
+main: test1.o EventLoop.o Poller.o Channel.o Timer.o TimerQueue.o EventLoopThread.o ../base/AsyncLogging.o ../base/CountDownLatch.o ../base/FileUtil.o ../base/LogFile.o ../base/Logging.o ../base/LogStream.o ../base/Thread.o ../base/Timestamp.o  
+		g++ -g -o test1 test1.o EventLoop.o Poller.o Channel.o Timer.o TimerQueue.o ../base/AsyncLogging.o ../base/CountDownLatch.o ../base/FileUtil.o ../base/LogFile.o ../base/Logging.o ../base/LogStream.o ../base/Thread.o ../base/Timestamp.o -pthread
 		rm -f *.o ../base/*.o

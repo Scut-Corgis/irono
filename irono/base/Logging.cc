@@ -34,7 +34,7 @@ void output(const char* msg, int len) {
     pthread_once(&once_control_, once_init);
     AsyncLogger_->append(msg, len);
 }
-Logger::OutputFunc g_output = output;
+Logger::OutputFunc g_output = defaultOutput;
 
 Logger::~Logger() {
     impl_.stream_ << " -- " << impl_.filename_ << ":" << impl_.line_ << '\n';

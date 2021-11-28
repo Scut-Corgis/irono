@@ -78,7 +78,7 @@ TimerQueue::TimerQueue(EventLoop* loop)
   timerfdChannel_.setReadCallback(
       bind(&TimerQueue::handleRead, this));
   // we are always reading the timerfd, we disarm it with timerfd_settime.
-  //这行代码意味着从TimerQueue创立之时就已经纳入Poller列表了，是否定时取决你是否设置
+  //这行代码意味着从TimerQueue创立之时就已经纳入Poller列表了，是否定时取决你是否设置了定时器
   timerfdChannel_.enableReading();
 }
 
@@ -95,19 +95,22 @@ TimerQueue::~TimerQueue()
 
 TimerId TimerQueue::addTimer(const TimerCallback& cb,
                              Timestamp when,
-                             double interval)
-{
+                             double interval) {
     Timer* timer = new Timer(cb, when, interval);
+    loop_->runInLoop( bind(&TimerQueue::addTimerInLoop, this, timer));
     //必须在自己的I/O线程加，防止竞态条件
-    loop_->assertInLoopThread();
 
     //判断是否最早定时事件改变，timefd是时刻定最早的时，每次返回时再判断所有时间是否超时
-    bool earliestChanged = insert(timer);
 
+    return TimerId(timer);
+}
+
+void TimerQueue::addTimerInLoop(Timer* timer) {
+    loop_->assertInLoopThread();
+    bool earliestChanged = insert(timer);
     if (earliestChanged) {
         resetTimerfd(timerfd_, timer->expiration());
     }
-    return TimerId(timer);
 }
 
 void TimerQueue::handleRead()
@@ -130,65 +133,65 @@ void TimerQueue::handleRead()
 
 std::vector<TimerQueue::Entry> TimerQueue::getExpired(Timestamp now)
 {
-  std::vector<Entry> expired;
-  Entry sentry = std::make_pair(now, reinterpret_cast<Timer*>(UINTPTR_MAX));
-  //返回第一个未到期的定时器，最大指针的手法也很巧妙
-  TimerList::iterator it = timers_.lower_bound(sentry);
-  assert(it == timers_.end() || now < it->first);
+    std::vector<Entry> expired;
+    Entry sentry = std::make_pair(now, reinterpret_cast<Timer*>(UINTPTR_MAX));
+    //返回第一个未到期的定时器，最大指针的手法也很巧妙
+    TimerList::iterator it = timers_.lower_bound(sentry);
+    assert(it == timers_.end() || now < it->first);
 
-  //将到期的定时器返回，并删除到期的定时器，也很巧妙
-  std::copy(timers_.begin(), it, back_inserter(expired));
-  timers_.erase(timers_.begin(), it);
+    //将到期的定时器返回，并删除到期的定时器，也很巧妙
+    std::copy(timers_.begin(), it, back_inserter(expired));
+    timers_.erase(timers_.begin(), it);
 
-  return expired;
+    return expired;
 }
 
 //这个函数处理了所有到期定时事件，并重新设置定时为当前最前的定时器
 void TimerQueue::reset(const std::vector<Entry>& expired, Timestamp now)
 {
-  Timestamp nextExpire;
+    Timestamp nextExpire;
 
-  for (std::vector<Entry>::const_iterator it = expired.begin();
-      it != expired.end(); ++it)
-  {
-    //如果定时器是不断重复的周期事件，则重新插入,不然就删除他
-    if (it->second->repeat())
+    for (std::vector<Entry>::const_iterator it = expired.begin();
+        it != expired.end(); ++it)
     {
-      it->second->restart(now);
-      insert(it->second);
+        //如果定时器是不断重复的周期事件，则重新插入,不然就删除他
+        if (it->second->repeat())
+        {
+        it->second->restart(now);
+        insert(it->second);
+        }
+        else
+        {
+        // FIXME move to a free list
+        delete it->second;
+        }
     }
-    else
+        //获取下一个定时
+    if (!timers_.empty())
     {
-      // FIXME move to a free list
-      delete it->second;
+        nextExpire = timers_.begin()->second->expiration();
     }
-  }
-    //获取下一个定时
-  if (!timers_.empty())
-  {
-    nextExpire = timers_.begin()->second->expiration();
-  }
 
-  if (nextExpire.valid())
-  {
-    resetTimerfd(timerfd_, nextExpire);
-  }
-}
+    if (nextExpire.valid())
+    {
+        resetTimerfd(timerfd_, nextExpire);
+    }
+    }
 
 bool TimerQueue::insert(Timer* timer)
 {
-  bool earliestChanged = false;
-  Timestamp when = timer->expiration();
-  //set让排第一个就是最小的
-  TimerList::iterator it = timers_.begin();
-  if (it == timers_.end() || when < it->first)
-  {
-    earliestChanged = true;
-  }
-  //set的插入函数，可以返回一个插入位置的迭代器和是否插入成功的bool
-  std::pair<TimerList::iterator, bool> result =
-          timers_.insert(std::make_pair(when, timer));
-  assert(result.second);
-  return earliestChanged;
+    bool earliestChanged = false;
+    Timestamp when = timer->expiration();
+    //set让排第一个就是最小的
+    TimerList::iterator it = timers_.begin();
+    if (it == timers_.end() || when < it->first)
+    {
+        earliestChanged = true;
+    }
+    //set的插入函数，可以返回一个插入位置的迭代器和是否插入成功的bool
+    std::pair<TimerList::iterator, bool> result =
+            timers_.insert(std::make_pair(when, timer));
+    assert(result.second);
+    return earliestChanged;
 }
 

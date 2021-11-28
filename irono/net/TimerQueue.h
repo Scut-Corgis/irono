@@ -43,6 +43,7 @@ private:
 
     // called when timerfd alarms
     void handleRead();
+    void addTimerInLoop(Timer* timer);
     // move out all expired timers
     std::vector<Entry> getExpired(Timestamp now);
     void reset(const std::vector<Entry>& expired, Timestamp now);

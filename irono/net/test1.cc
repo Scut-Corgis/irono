@@ -1,36 +1,30 @@
 #include "EventLoop.h"
-#include "../base/Thread.h"
 #include <stdio.h>
-#include <unistd.h>
-#include "../base/Logging.h"
-#include <sys/timerfd.h>
+#include "TimerId.h"
 using namespace irono;
+#include "EventLoop.h"
+#include "EventLoopThread.h"
+#include <stdio.h>
 
-EventLoop* g_loop;
-
-
-void timeout()
+void runInThread()
 {
-  printf("Timeout!\n");
-  g_loop->quit();
+  printf("runInThread(): pid = %d, tid = %d\n",
+         getpid(), CurrentThread::tid());
 }
 
 int main()
 {
-  EventLoop loop;
-  g_loop = &loop;
+  printf("main(): pid = %d, tid = %d\n",
+         getpid(), CurrentThread::tid());
 
-  int timerfd = ::timerfd_create(CLOCK_MONOTONIC, TFD_NONBLOCK | TFD_CLOEXEC);
-  Channel channel(&loop, timerfd);
-  channel.setReadCallback(timeout);
-  channel.enableReading();
+  EventLoopThread loopThread;
+  EventLoop* loop = loopThread.startLoop();
+  loop->runInLoop(runInThread);
+  sleep(1);
+  loop->runAfter(2, runInThread);
+  sleep(3);
+//   loop->quit();
 
-  struct itimerspec howlong;
-  bzero(&howlong, sizeof howlong);
-  howlong.it_value.tv_sec = 5;
-  ::timerfd_settime(timerfd, 0, &howlong, NULL);
-
-  loop.loop();
-
-  ::close(timerfd);
+  printf("exit main().\n");
+  while (1){};
 }
