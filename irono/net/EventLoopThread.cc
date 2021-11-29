@@ -39,7 +39,7 @@ EventLoop* EventLoopThread::startLoop() {
 
 void EventLoopThread::threadFunc() {
     EventLoop loop;
-
+    
     {
         MutexLockGuard lock(mutex_);
         loop_ = &loop;

@@ -1,3 +1,307 @@
-2021-11-28 23:05:17 TRACE 162113  fd = 3 events = 3 -- Poller.cc:58
-2021-11-28 23:05:17 TRACE 162113  EventLoop created 0x7FFFF7A4CCA0 in thread 162113 -- EventLoop.cc:32
-2021-11-28 23:05:18 FATAL 162112  EventLoop::abortNotInLoopThread - EventLoop 0x7FFFF7A4CCA0 was created in threadId_ = 162113, current thread id = 162112 -- EventLoop.cc:124
+2021-11-29 16:32:00 TRACE 191515  fd = 3 events = 3 -- Poller.cc:58
+2021-11-29 16:32:00 TRACE 191515  EventLoop created 0x7FFC6B91ADD0 in thread 191515 -- EventLoop.cc:32
+2021-11-29 16:32:00 TRACE 191515  fd = 6 events = 3 -- Poller.cc:58
+2021-11-29 16:32:10 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:32:20 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:32:30 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:32:40 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:32:50 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:33:00 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:33:10 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:33:20 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:33:30 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:33:40 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:33:50 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:34:01 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:34:11 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:34:21 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:34:31 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:34:41 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:34:51 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:35:01 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:35:11 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:35:21 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:35:31 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:35:41 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:35:51 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:36:01 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:36:11 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:36:21 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:36:31 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:36:41 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:36:51 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:37:01 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:37:11 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:37:21 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:37:31 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:37:41 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:37:51 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:38:01 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:38:11 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:38:21 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:38:31 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:38:41 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:38:51 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:39:01 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:39:11 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:39:21 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:39:31 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:39:41 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:39:51 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:39:53 TRACE 191515  1 events happended -- Poller.cc:26
+2021-11-29 16:39:53 TRACE 191515  new connection from : 127.0.0.1:47902 -- Acceptor.cc:37
+2021-11-29 16:39:53 DEBUG 191515  Socket::accept -- SocketsOps.cc:78
+2021-11-29 16:40:03 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:40:13 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:40:23 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:40:33 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:40:43 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:40:53 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:41:03 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:41:13 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:41:23 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:41:33 TRACE 191515   nothing happended -- Poller.cc:29
+2021-11-29 16:44:11 TRACE 192417  fd = 3 events = 3 -- Poller.cc:58
+2021-11-29 16:44:11 TRACE 192417  EventLoop created 0x7FFE99874270 in thread 192417 -- EventLoop.cc:32
+2021-11-29 16:44:11 TRACE 192417  fd = 6 events = 3 -- Poller.cc:58
+2021-11-29 16:44:21 TRACE 192417   nothing happended -- Poller.cc:29
+2021-11-29 16:44:31 TRACE 192417   nothing happended -- Poller.cc:29
+2021-11-29 16:44:41 TRACE 192417   nothing happended -- Poller.cc:29
+2021-11-29 16:44:51 TRACE 192417   nothing happended -- Poller.cc:29
+2021-11-29 16:45:01 TRACE 192417   nothing happended -- Poller.cc:29
+2021-11-29 16:45:11 TRACE 192417   nothing happended -- Poller.cc:29
+2021-11-29 16:45:21 TRACE 192417   nothing happended -- Poller.cc:29
+2021-11-29 16:45:31 TRACE 192417   nothing happended -- Poller.cc:29
+2021-11-29 16:45:41 TRACE 192417   nothing happended -- Poller.cc:29
+2021-11-29 16:45:51 TRACE 192417   nothing happended -- Poller.cc:29
+2021-11-29 16:46:01 TRACE 192417   nothing happended -- Poller.cc:29
+2021-11-29 16:46:11 TRACE 192417   nothing happended -- Poller.cc:29
+2021-11-29 16:46:21 TRACE 192417   nothing happended -- Poller.cc:29
+2021-11-29 16:46:31 TRACE 192417   nothing happended -- Poller.cc:29
+2021-11-29 16:46:41 TRACE 192417   nothing happended -- Poller.cc:29
+2021-11-29 16:46:51 TRACE 192417   nothing happended -- Poller.cc:29
+2021-11-29 16:47:01 TRACE 192417   nothing happended -- Poller.cc:29
+2021-11-29 16:47:11 TRACE 192417   nothing happended -- Poller.cc:29
+2021-11-29 16:47:21 TRACE 192417   nothing happended -- Poller.cc:29
+2021-11-29 16:47:31 TRACE 192417   nothing happended -- Poller.cc:29
+2021-11-29 16:47:41 TRACE 192417   nothing happended -- Poller.cc:29
+2021-11-29 16:47:51 TRACE 192417   nothing happended -- Poller.cc:29
+2021-11-29 16:48:01 TRACE 192417   nothing happended -- Poller.cc:29
+2021-11-29 16:48:11 TRACE 192417   nothing happended -- Poller.cc:29
+2021-11-29 16:48:21 TRACE 192417   nothing happended -- Poller.cc:29
+2021-11-29 16:48:31 TRACE 192417   nothing happended -- Poller.cc:29
+2021-11-29 16:48:41 TRACE 192417   nothing happended -- Poller.cc:29
+2021-11-29 16:48:51 TRACE 192417   nothing happended -- Poller.cc:29
+2021-11-29 16:49:01 TRACE 192417   nothing happended -- Poller.cc:29
+2021-11-29 16:49:11 TRACE 192417   nothing happended -- Poller.cc:29
+2021-11-29 16:49:21 TRACE 192417   nothing happended -- Poller.cc:29
+2021-11-29 16:49:31 TRACE 192417   nothing happended -- Poller.cc:29
+2021-11-29 16:50:06 TRACE 192939  fd = 3 events = 3 -- Poller.cc:58
+2021-11-29 16:50:06 TRACE 192939  EventLoop created 0x7FFDA3DB7720 in thread 192939 -- EventLoop.cc:32
+2021-11-29 16:50:06 TRACE 192939  fd = 5 events = 3 -- Poller.cc:58
+2021-11-29 16:50:06 TRACE 192939  fd = 6 events = 3 -- Poller.cc:58
+2021-11-29 16:50:09 TRACE 192939  1 events happended -- Poller.cc:26
+2021-11-29 16:50:09 TRACE 192939  new connection from : 127.0.0.1:48000现在的connfd:1 -- Acceptor.cc:37
+2021-11-29 16:50:09 DEBUG 192939  Socket::accept -- SocketsOps.cc:78
+2021-11-29 16:50:19 TRACE 192939   nothing happended -- Poller.cc:29
+2021-11-29 16:50:29 TRACE 192939   nothing happended -- Poller.cc:29
+2021-11-29 16:50:39 TRACE 192939   nothing happended -- Poller.cc:29
+2021-11-29 16:50:49 TRACE 192939   nothing happended -- Poller.cc:29
+2021-11-29 16:50:59 TRACE 192939   nothing happended -- Poller.cc:29
+2021-11-29 16:51:10 TRACE 192939   nothing happended -- Poller.cc:29
+2021-11-29 16:51:20 TRACE 192939   nothing happended -- Poller.cc:29
+2021-11-29 16:51:30 TRACE 192939   nothing happended -- Poller.cc:29
+2021-11-29 16:51:40 TRACE 192939   nothing happended -- Poller.cc:29
+2021-11-29 16:51:50 TRACE 192939   nothing happended -- Poller.cc:29
+2021-11-29 16:52:00 TRACE 192939   nothing happended -- Poller.cc:29
+2021-11-29 16:52:10 TRACE 192939   nothing happended -- Poller.cc:29
+2021-11-29 16:52:20 TRACE 192939   nothing happended -- Poller.cc:29
+2021-11-29 16:52:30 TRACE 192939   nothing happended -- Poller.cc:29
+2021-11-29 16:52:40 TRACE 192939   nothing happended -- Poller.cc:29
+2021-11-29 16:52:49 TRACE 192939  1 events happended -- Poller.cc:26
+2021-11-29 16:52:49 TRACE 192939  new connection from : 127.0.0.1:48022现在的connfd:1 -- Acceptor.cc:37
+2021-11-29 16:52:49 DEBUG 192939  Socket::accept -- SocketsOps.cc:78
+2021-11-29 16:52:59 TRACE 192939   nothing happended -- Poller.cc:29
+2021-11-29 16:53:09 TRACE 192939   nothing happended -- Poller.cc:29
+2021-11-29 16:53:14 TRACE 192939  1 events happended -- Poller.cc:26
+2021-11-29 16:53:14 TRACE 192939  new connection from : 127.0.0.1:48026现在的connfd:1 -- Acceptor.cc:37
+2021-11-29 16:53:14 DEBUG 192939  Socket::accept -- SocketsOps.cc:78
+2021-11-29 16:53:24 TRACE 192939   nothing happended -- Poller.cc:29
+2021-11-29 16:53:34 TRACE 192939   nothing happended -- Poller.cc:29
+2021-11-29 16:53:44 TRACE 192939   nothing happended -- Poller.cc:29
+2021-11-29 16:53:54 TRACE 192939   nothing happended -- Poller.cc:29
+2021-11-29 16:54:04 TRACE 192939   nothing happended -- Poller.cc:29
+2021-11-29 16:54:14 TRACE 192939   nothing happended -- Poller.cc:29
+2021-11-29 16:54:24 TRACE 192939   nothing happended -- Poller.cc:29
+2021-11-29 16:54:34 TRACE 192939   nothing happended -- Poller.cc:29
+2021-11-29 16:54:44 TRACE 192939   nothing happended -- Poller.cc:29
+2021-11-29 16:54:54 TRACE 192939   nothing happended -- Poller.cc:29
+2021-11-29 16:55:04 TRACE 192939   nothing happended -- Poller.cc:29
+2021-11-29 16:55:14 TRACE 192939   nothing happended -- Poller.cc:29
+2021-11-29 16:55:49 TRACE 193618  fd = 3 events = 3 -- Poller.cc:58
+2021-11-29 16:55:49 TRACE 193618  EventLoop created 0x7FFEC7867B30 in thread 193618 -- EventLoop.cc:32
+2021-11-29 16:55:49 TRACE 193618  fd = 5 events = 3 -- Poller.cc:58
+2021-11-29 16:55:49 TRACE 193618  fd = 6 events = 3 -- Poller.cc:58
+2021-11-29 16:55:53 TRACE 193618  1 events happended -- Poller.cc:26
+2021-11-29 16:55:53 TRACE 193618  new connection from : 127.0.0.1:48070现在的connfd:1 -- Acceptor.cc:37
+2021-11-29 16:55:53 DEBUG 193618  Socket::accept -- SocketsOps.cc:78
+2021-11-29 16:56:03 TRACE 193618   nothing happended -- Poller.cc:29
+2021-11-29 16:56:13 TRACE 193618   nothing happended -- Poller.cc:29
+2021-11-29 16:56:23 TRACE 193618   nothing happended -- Poller.cc:29
+2021-11-29 16:56:33 TRACE 193618   nothing happended -- Poller.cc:29
+2021-11-29 16:56:43 TRACE 193618   nothing happended -- Poller.cc:29
+2021-11-29 16:56:53 TRACE 193618   nothing happended -- Poller.cc:29
+2021-11-29 16:57:03 TRACE 193618   nothing happended -- Poller.cc:29
+2021-11-29 16:57:13 TRACE 193618   nothing happended -- Poller.cc:29
+2021-11-29 16:57:23 TRACE 193618   nothing happended -- Poller.cc:29
+2021-11-29 16:57:33 TRACE 193618   nothing happended -- Poller.cc:29
+2021-11-29 16:57:43 TRACE 193618   nothing happended -- Poller.cc:29
+2021-11-29 16:57:53 TRACE 193618   nothing happended -- Poller.cc:29
+2021-11-29 16:58:03 TRACE 193618   nothing happended -- Poller.cc:29
+2021-11-29 16:58:13 TRACE 193618   nothing happended -- Poller.cc:29
+2021-11-29 17:01:42 TRACE 194012  fd = 3 events = 3 -- Poller.cc:58
+2021-11-29 17:01:42 TRACE 194012  EventLoop created 0x7FFD1AB59ED0 in thread 194012 -- EventLoop.cc:32
+2021-11-29 17:01:42 TRACE 194012  fd = 5 events = 3 -- Poller.cc:58
+2021-11-29 17:01:42 TRACE 194012  fd = 6 events = 3 -- Poller.cc:58
+2021-11-29 17:01:47 TRACE 194012  1 events happended -- Poller.cc:26
+2021-11-29 17:01:47 TRACE 194012  new connection from : 127.0.0.1:48120现在的connfd:1 -- Acceptor.cc:37
+2021-11-29 17:01:47 DEBUG 194012  Socket::accept -- SocketsOps.cc:78
+2021-11-29 17:01:57 TRACE 194012   nothing happended -- Poller.cc:29
+2021-11-29 17:03:31 TRACE 194306  fd = 3 events = 3 -- Poller.cc:58
+2021-11-29 17:03:31 TRACE 194306  EventLoop created 0x7FFFEB0098D0 in thread 194306 -- EventLoop.cc:32
+2021-11-29 17:03:31 TRACE 194306  fd = 5 events = 3 -- Poller.cc:58
+2021-11-29 17:03:31 TRACE 194306  fd = 6 events = 3 -- Poller.cc:58
+2021-11-29 17:03:41 TRACE 194306   nothing happended -- Poller.cc:29
+2021-11-29 17:03:47 TRACE 194306  1 events happended -- Poller.cc:26
+2021-11-29 17:03:47 TRACE 194306  new connection from : 127.0.0.1:48140现在的connfd:7 -- Acceptor.cc:37
+2021-11-29 17:03:47 DEBUG 194306  Socket::accept -- SocketsOps.cc:78
+2021-11-29 17:03:57 TRACE 194306   nothing happended -- Poller.cc:29
+2021-11-29 17:04:00 TRACE 194306  1 events happended -- Poller.cc:26
+2021-11-29 17:04:00 TRACE 194306  new connection from : 127.0.0.1:48144现在的connfd:7 -- Acceptor.cc:37
+2021-11-29 17:04:00 DEBUG 194306  Socket::accept -- SocketsOps.cc:78
+2021-11-29 17:04:10 TRACE 194306   nothing happended -- Poller.cc:29
+2021-11-29 17:04:12 TRACE 194306  1 events happended -- Poller.cc:26
+2021-11-29 17:04:12 TRACE 194306  new connection from : 127.0.0.1:48150现在的connfd:7 -- Acceptor.cc:37
+2021-11-29 17:04:12 DEBUG 194306  Socket::accept -- SocketsOps.cc:78
+2021-11-29 17:04:22 TRACE 194306   nothing happended -- Poller.cc:29
+2021-11-29 17:04:32 TRACE 194306   nothing happended -- Poller.cc:29
+2021-11-29 17:04:42 TRACE 194306   nothing happended -- Poller.cc:29
+2021-11-29 17:04:52 TRACE 194306   nothing happended -- Poller.cc:29
+2021-11-29 17:05:02 TRACE 194306   nothing happended -- Poller.cc:29
+2021-11-29 17:05:19 TRACE 194803  fd = 3 events = 3 -- Poller.cc:58
+2021-11-29 17:05:19 TRACE 194803  EventLoop created 0x7FFDE5842B00 in thread 194803 -- EventLoop.cc:32
+2021-11-29 17:05:19 TRACE 194803  fd = 5 events = 3 -- Poller.cc:58
+2021-11-29 17:05:19 TRACE 194803  fd = 6 events = 3 -- Poller.cc:58
+2021-11-29 17:05:26 TRACE 194803  1 events happended -- Poller.cc:26
+2021-11-29 17:05:26 TRACE 194803  new connection from : 127.0.0.1:48176现在的connfd:7 -- Acceptor.cc:37
+2021-11-29 17:05:26 DEBUG 194803  Socket::accept -- SocketsOps.cc:78
+2021-11-29 17:05:31 TRACE 194803  1 events happended -- Poller.cc:26
+2021-11-29 17:05:31 TRACE 194803  new connection from : 127.0.0.1:48178现在的connfd:8 -- Acceptor.cc:37
+2021-11-29 17:05:31 DEBUG 194803  Socket::accept -- SocketsOps.cc:78
+2021-11-29 17:05:41 TRACE 194803  1 events happended -- Poller.cc:26
+2021-11-29 17:05:41 TRACE 194803  new connection from : 127.0.0.1:48182现在的connfd:9 -- Acceptor.cc:37
+2021-11-29 17:05:41 DEBUG 194803  Socket::accept -- SocketsOps.cc:78
+2021-11-29 17:05:51 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:06:01 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:06:11 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:06:21 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:06:31 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:06:41 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:06:51 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:07:01 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:07:11 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:07:13 TRACE 194803  1 events happended -- Poller.cc:26
+2021-11-29 17:07:13 TRACE 194803  new connection from : 127.0.0.1:48202现在的connfd:10 -- Acceptor.cc:37
+2021-11-29 17:07:13 DEBUG 194803  Socket::accept -- SocketsOps.cc:78
+2021-11-29 17:07:23 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:07:33 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:07:43 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:07:53 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:08:03 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:08:13 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:08:23 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:08:33 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:08:43 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:08:53 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:09:03 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:09:13 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:09:23 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:09:33 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:09:43 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:09:53 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:10:03 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:10:13 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:10:23 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:10:33 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:10:43 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:10:53 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:11:03 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:11:13 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:11:23 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:11:33 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:11:43 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:11:54 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:12:04 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:12:14 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:12:24 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:12:34 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:12:44 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:12:54 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:13:04 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:13:14 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:13:24 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:13:34 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:13:44 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:13:54 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:14:04 TRACE 194803   nothing happended -- Poller.cc:29
+2021-11-29 17:14:28 TRACE 195596  fd = 3 events = 3 -- Poller.cc:58
+2021-11-29 17:14:28 TRACE 195596  EventLoop created 0x7FFF5C38A0F0 in thread 195596 -- EventLoop.cc:32
+2021-11-29 17:14:28 TRACE 195596  fd = 5 events = 3 -- Poller.cc:58
+2021-11-29 17:14:28 TRACE 195596  fd = 6 events = 3 -- Poller.cc:58
+2021-11-29 17:14:28 TRACE 195596  fd = 7 events = 3 -- Poller.cc:58
+2021-11-29 17:14:37 TRACE 195596  1 events happended -- Poller.cc:26
+2021-11-29 17:14:37 TRACE 195596  new connection from : 127.0.0.1:48282 现在的connfd:8 -- Acceptor.cc:37
+2021-11-29 17:14:37 DEBUG 195596  Socket::accept -- SocketsOps.cc:78
+2021-11-29 17:14:44 TRACE 195596  1 events happended -- Poller.cc:26
+2021-11-29 17:14:44 TRACE 195596  new connection from : 127.0.0.1:59152 现在的connfd:8 -- Acceptor.cc:37
+2021-11-29 17:14:44 DEBUG 195596  Socket::accept -- SocketsOps.cc:78
+2021-11-29 17:14:54 TRACE 195596   nothing happended -- Poller.cc:29
+2021-11-29 17:15:04 TRACE 195596   nothing happended -- Poller.cc:29
+2021-11-29 17:15:14 TRACE 195596   nothing happended -- Poller.cc:29
+2021-11-29 17:15:24 TRACE 195596   nothing happended -- Poller.cc:29
+2021-11-29 17:15:34 TRACE 195596   nothing happended -- Poller.cc:29
+2021-11-29 17:15:44 TRACE 195596   nothing happended -- Poller.cc:29
+2021-11-29 17:15:54 TRACE 195596   nothing happended -- Poller.cc:29
+2021-11-29 17:16:04 TRACE 195596   nothing happended -- Poller.cc:29
+2021-11-29 17:16:14 TRACE 195596   nothing happended -- Poller.cc:29
+2021-11-29 17:16:24 TRACE 195596   nothing happended -- Poller.cc:29
+2021-11-29 17:16:34 TRACE 195596   nothing happended -- Poller.cc:29
+2021-11-29 17:16:44 TRACE 195596   nothing happended -- Poller.cc:29
+2021-11-29 17:16:54 TRACE 195596   nothing happended -- Poller.cc:29
+2021-11-29 17:17:04 TRACE 195596   nothing happended -- Poller.cc:29
+2021-11-29 17:17:14 TRACE 195596   nothing happended -- Poller.cc:29
+2021-11-29 17:17:24 TRACE 195596   nothing happended -- Poller.cc:29
+2021-11-29 17:17:34 TRACE 195596   nothing happended -- Poller.cc:29
+2021-11-29 17:17:44 TRACE 195596   nothing happended -- Poller.cc:29
+2021-11-29 17:17:54 TRACE 195596   nothing happended -- Poller.cc:29
+2021-11-29 17:18:04 TRACE 195596   nothing happended -- Poller.cc:29
+2021-11-29 17:18:14 TRACE 195596   nothing happended -- Poller.cc:29
+2021-11-29 17:18:24 TRACE 195596   nothing happended -- Poller.cc:29
+2021-11-29 17:18:34 TRACE 195596   nothing happended -- Poller.cc:29
+2021-11-29 17:18:44 TRACE 195596   nothing happended -- Poller.cc:29
+2021-11-29 17:18:54 TRACE 195596   nothing happended -- Poller.cc:29
+2021-11-29 17:19:04 TRACE 195596   nothing happended -- Poller.cc:29
+2021-11-29 17:19:14 TRACE 195596   nothing happended -- Poller.cc:29
+2021-11-29 17:19:24 TRACE 195596   nothing happended -- Poller.cc:29
+2021-11-29 17:19:34 TRACE 195596   nothing happended -- Poller.cc:29
+2021-11-29 17:19:44 TRACE 195596   nothing happended -- Poller.cc:29
+2021-11-29 17:19:54 TRACE 195596   nothing happended -- Poller.cc:29
+2021-11-29 17:20:04 TRACE 195596   nothing happended -- Poller.cc:29
+2021-11-29 17:20:14 TRACE 195596   nothing happended -- Poller.cc:29
+2021-11-29 17:20:24 TRACE 195596   nothing happended -- Poller.cc:29
+2021-11-29 17:20:34 TRACE 195596   nothing happended -- Poller.cc:29
+2021-11-29 17:20:44 TRACE 195596   nothing happended -- Poller.cc:29
+2021-11-29 17:20:54 TRACE 195596   nothing happended -- Poller.cc:29
+2021-11-29 17:21:04 TRACE 195596   nothing happended -- Poller.cc:29
+2021-11-29 17:21:14 TRACE 195596   nothing happended -- Poller.cc:29
+2021-11-29 17:21:24 TRACE 195596   nothing happended -- Poller.cc:29
