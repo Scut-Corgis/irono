@@ -8,38 +8,43 @@
 #include "Acceptor.h"
 #include "InetAddress.h"
 #include "SocketsOps.h"
+#include "TcpServer.h"
+
 using namespace irono;
-
-
-void newConnection1(int sockfd, const InetAddress& peerAddr)
+void onConnection(const TcpConnectionPtr& conn)
 {
-  printf("newConnection(): accepted a new connection from %s\n",
-         peerAddr.toHostPort().c_str());
-  ::write(sockfd, "第一个！！！！", 13);
-  sockets::close(sockfd);
+  if (conn->connected())
+  {
+    printf("onConnection(): new connection [%s] from %s\n",
+           conn->name().c_str(),
+           conn->peerAddress().toHostPort().c_str());
+  }
+  else
+  {
+    printf("onConnection(): connection [%s] is down\n",
+           conn->name().c_str());
+  }
 }
-void newConnection2(int sockfd, const InetAddress& peerAddr)
+
+void onMessage(const TcpConnectionPtr& conn,
+               const char* data,
+               ssize_t len)
 {
-  printf("newConnection(): accepted a new connection from %s\n",
-         peerAddr.toHostPort().c_str());
-  ::write(sockfd, "这是第二个啦", 100);
-  sockets::close(sockfd);
+  printf("onMessage(): received %zd bytes from connection [%s]\n",
+         len, conn->name().c_str());
 }
 
 int main()
 {
   printf("main(): pid = %d\n", getpid());
 
-  InetAddress listenAddr1(9981);
-  InetAddress listenAddr2(9982);
+  InetAddress listenAddr(9981);
   EventLoop loop;
 
-  Acceptor acceptor1(&loop, listenAddr1);
-  Acceptor acceptor2(&loop, listenAddr2);
-  acceptor1.setNewConnectionCallback(newConnection1);
-  acceptor2.setNewConnectionCallback(newConnection2);
-  acceptor1.listen();
-  acceptor2.listen();
+  TcpServer server(&loop, listenAddr);
+  server.setConnectionCallback(onConnection);
+  server.setMessageCallback(onMessage);
+  server.start();
 
   loop.loop();
 }

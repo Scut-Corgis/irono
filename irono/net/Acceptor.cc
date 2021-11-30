@@ -9,8 +9,8 @@
 
 using namespace irono;
 using namespace std;
-//最大并发连接数
-const int kMaxConnections = 100;
+//最大并发连接数,可设置
+const int kMaxConnections = 1000;
 
 Acceptor::Acceptor(EventLoop* loop, const InetAddress& listenAddr)
     : loop_(loop),
@@ -34,7 +34,7 @@ void Acceptor::handleRead() {
     InetAddress peerAddr(0);
     int connfd = 0;
     while ( (connfd = acceptSocket_.accept(&peerAddr)) > 0) {
-        LOG_TRACE<<"new connection from : "<<peerAddr.toHostPort() <<" 现在的connfd:"<<connfd;
+        // LOG_TRACE<<"new connection from : "<<peerAddr.toHostPort() <<" 现在的connfd:"<<connfd;
         if (connfd < kMaxConnections) {
             if (newConnectionCallback_) {
                 newConnectionCallback_(connfd, peerAddr);

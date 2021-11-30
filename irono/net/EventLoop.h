@@ -28,7 +28,7 @@ public:
     bool isInLoopThread() const { return threadId_ == CurrentThread::tid(); }
     void quit();
     void updateChannel(Channel* channel);
-
+    void removeChannel(Channel* channel);
     typedef std::vector<Channel*> ChannleList;
     typedef std::function<void()> Functor;
     void wakeup();

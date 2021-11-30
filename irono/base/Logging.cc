@@ -5,6 +5,21 @@
 #include "AsyncLogging.h"
 namespace irono {
 
+__thread char t_errnobuf[512];
+// __thread char t_time[32];
+// __thread time_t t_lastSecond;
+
+
+//将errno用string打印出来具体错误是什么
+const char* strerror_tl(int savedErrno)
+{
+  return strerror_r(savedErrno, t_errnobuf, sizeof t_errnobuf);
+}
+
+
+
+
+
 std::string Logger::logFileName_ = "./irono.log";
 static pthread_once_t once_control_ = PTHREAD_ONCE_INIT;
 static AsyncLogging* AsyncLogger_;

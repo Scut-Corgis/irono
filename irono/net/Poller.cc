@@ -75,13 +75,44 @@ void Poller::updateChannel(Channel* channel) {
         int idx = channel->index();
         assert(0 <= idx && idx < static_cast<int>(pollfds_.size()));
         struct pollfd& pfd = pollfds_[idx];
-        assert(pfd.fd == channel->fd() || pfd.fd == -1);
+        assert(pfd.fd == channel->fd() || pfd.fd == -channel->fd()-1);
         pfd.events = static_cast<short>(channel->events());
         pfd.revents = 0;
         if (channel->isNoneEvent()) {
         // ignore this pollfd
-            pfd.fd = -1;
+            pfd.fd = -channel->fd()-1;
         }
     }
 }
-
+void Poller::removeChannel(Channel* channel) {
+    assertInLoopThread();
+    LOG_TRACE << "fd = " << channel->fd();
+    //断言能找到，断言poller字典里有，断言channel的监视事件已经清空
+    assert(channels_.find(channel->fd()) != channels_.end());
+    assert(channels_[channel->fd()] == channel);
+    assert(channel->isNoneEvent());
+    int idx = channel->index();
+    //断言idx有效,idx就是channel序号
+    assert(0 <= idx && idx < static_cast<int>(pollfds_.size()));
+    const struct pollfd& pfd = pollfds_[idx]; (void)pfd;
+    //因为之前events_置0时，会updataChannel，已经将其文件描述符反转-1了
+    assert(pfd.fd == -channel->fd()-1 && pfd.events == channel->events());
+    size_t n = channels_.erase(channel->fd());
+    assert(n == 1); //(void)n;
+    //如果刚好是最后一个直接pop就好
+    if (static_cast<size_t>(idx) == pollfds_.size()-1) {
+        pollfds_.pop_back();
+    } 
+    else {
+        int channelAtEnd = pollfds_.back().fd;
+        //交换
+        iter_swap(pollfds_.begin()+idx, pollfds_.end()-1);
+        if (channelAtEnd < 0) {
+        //将要删除的fd变回来
+        channelAtEnd = -channelAtEnd-1;
+        }
+        //调整序号，使序号满足0123...
+        channels_[channelAtEnd]->set_index(idx);
+        pollfds_.pop_back();
+    }
+    }

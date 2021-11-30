@@ -129,3 +129,27 @@ void sockets::fromHostPort(const char* ip, uint16_t port,
     }
 }
 
+struct sockaddr_in sockets::getLocalAddr(int sockfd) {
+    struct sockaddr_in localaddr;
+    bzero(&localaddr, sizeof localaddr);
+    socklen_t addrlen = sizeof(localaddr);
+    if (::getsockname(sockfd, sockaddr_cast(&localaddr), &addrlen) < 0)
+    {
+        LOG_FATAL << "sockets::getLocalAddr";
+    }
+    return localaddr;
+}
+
+int sockets::getSocketError(int sockfd) {
+    int optval;
+    socklen_t optlen = sizeof optval;
+    //无错误发生返回0，有错误才会返回-1并置位errno
+    if (::getsockopt(sockfd, SOL_SOCKET, SO_ERROR, &optval, &optlen) < 0)
+    {
+        return errno;
+    }
+    else
+    {
+        return optval;
+    }
+}

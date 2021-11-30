@@ -1,5 +1,6 @@
 # vpath %.cc ../base
-LIB_SRC = EventLoop.cc Poller.cc Channel.cc Timer.cc TimerQueue.cc EventLoopThread.cc Socket.cc SocketsOps.cc Acceptor.cc InetAddress.cc
+LIB_SRC = EventLoop.cc Poller.cc Channel.cc Timer.cc TimerQueue.cc EventLoopThread.cc Socket.cc \
+	SocketsOps.cc Acceptor.cc InetAddress.cc TcpConnection.cc TcpServer.cc
 BASE_SRC = ../base/AsyncLogging.cc ../base/CountDownLatch.cc ../base/FileUtil.cc ../base/LogFile.cc ../base/Logging.cc ../base/LogStream.cc ../base/Thread.cc ../base/Timestamp.cc  
 BINARIES = test1
 

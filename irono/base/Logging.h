@@ -54,4 +54,19 @@ inline Logger::LogLevel Logger::logLevel() {
 #define LOG_FATAL if (irono::Logger::LogLevel() <= irono::Logger::FATAL) \
     irono::Logger(__FILE__, __LINE__, irono::Logger::FATAL).stream()
 
+
+#define CHECK_NOTNULL(val) \
+  irono::CheckNotNull(__FILE__, __LINE__, "'" #val "' Must be non NULL", (val))
+
+// A small helper for CHECK_NOTNULL().
+template <typename T>
+T* CheckNotNull(const char *file, int line, const char *names, T* ptr) {
+  if (ptr == NULL) {
+   Logger(file, line, Logger::FATAL).stream() << names;
+  }
+  return ptr;
+}
+
+const char* strerror_tl(int savedErrno);
+
 }
