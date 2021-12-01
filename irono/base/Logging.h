@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2021-11-26 16:01:16
+ * @LastEditTime: 2021-12-01 15:31:12
+ * @LastEditors: your name
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: /irono/irono/base/Logging.h
+ */
 #pragma once
 
 #include "Timestamp.h"
@@ -27,6 +35,8 @@ private:
     class Impl {
     public:
         Impl(const char* filename, int line, LogLevel level);
+
+        //日志头，目前精确到秒
         void formatTime();
 
         LogStream stream_;
@@ -61,10 +71,10 @@ inline Logger::LogLevel Logger::logLevel() {
 // A small helper for CHECK_NOTNULL().
 template <typename T>
 T* CheckNotNull(const char *file, int line, const char *names, T* ptr) {
-  if (ptr == NULL) {
-   Logger(file, line, Logger::FATAL).stream() << names;
-  }
-  return ptr;
+    if (ptr == NULL) {
+        Logger(file, line, Logger::FATAL).stream() << names;
+    }
+    return ptr;
 }
 
 const char* strerror_tl(int savedErrno);

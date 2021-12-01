@@ -45,6 +45,7 @@ private:
     void doPendingFunctors();
     //一个BUG改一小时，就算因为这个threadId_之前定义在了后面，一直abort，百思不得其解，吸取教训记住了。
     const pid_t threadId_;
+    Timestamp pollReturnTime_;
     bool looping_;
     bool quit_;
     bool callingPendingFunctors_;

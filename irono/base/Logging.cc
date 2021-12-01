@@ -75,6 +75,7 @@ Logger::Impl::Impl(const char* filename, int line, LogLevel level)
     stream_<<CurrentThread::t_tidString<<" ";
 }
 
+//localtime最多精确到秒,如果想要微秒也不难，tv.tv_usec就是微妙，可以参考Timestamp::toFormattedString()的设计
 void Logger::Impl::formatTime() {
     struct timeval tv;
     time_t time;

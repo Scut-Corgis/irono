@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2021-11-28 11:52:26
+ * @LastEditTime: 2021-12-01 15:06:02
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: /irono/irono/net/test1.cc
+ */
 #include "EventLoop.h"
 #include <stdio.h>
 #include "TimerId.h"
@@ -11,6 +19,11 @@
 #include "TcpServer.h"
 
 using namespace irono;
+#include "TcpServer.h"
+#include "EventLoop.h"
+#include "InetAddress.h"
+#include <stdio.h>
+
 void onConnection(const TcpConnectionPtr& conn)
 {
   if (conn->connected())
@@ -27,11 +40,15 @@ void onConnection(const TcpConnectionPtr& conn)
 }
 
 void onMessage(const TcpConnectionPtr& conn,
-               const char* data,
-               ssize_t len)
+               Buffer* buf,
+               Timestamp receiveTime)
 {
-  printf("onMessage(): received %zd bytes from connection [%s]\n",
-         len, conn->name().c_str());
+  printf("onMessage(): received %zd bytes from connection [%s] at %s\n",
+         buf->readableBytes(),
+         conn->name().c_str(),
+         receiveTime.toFormattedString().c_str());
+
+  printf("onMessage(): [%s]\n", buf->retrieveAsString().c_str());
 }
 
 int main()
@@ -48,4 +65,5 @@ int main()
 
   loop.loop();
 }
+
 

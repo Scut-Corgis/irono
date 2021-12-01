@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2021-11-29 15:53:58
+ * @LastEditTime: 2021-12-01 15:29:34
+ * @LastEditors: your name
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: /irono/irono/net/Acceptor.cc
+ */
 #include "Acceptor.h"
 
 #include "../base/Logging.h"
@@ -22,6 +30,7 @@ Acceptor::Acceptor(EventLoop* loop, const InetAddress& listenAddr)
     acceptChannel_.setReadCallback( bind(&Acceptor::handleRead, this) );
 }
 
+//往Poller注册监听套接字，并开始监听
 void Acceptor::listen() {
     loop_->assertInLoopThread();
     listenning_ = true;
@@ -29,6 +38,7 @@ void Acceptor::listen() {
     acceptSocket_.listen();
 }
 
+//新连接到达回调
 void Acceptor::handleRead() {
     loop_->assertInLoopThread();
     InetAddress peerAddr(0);

@@ -2,10 +2,10 @@
 
 #include "Callbacks.h"
 #include "InetAddress.h"
-
 //#include <boost/any.hpp>
 #include "../base/noncopyable.h"
 #include <memory>
+#include "Buffer.h"
 
 namespace irono
 {
@@ -54,7 +54,7 @@ private:
     enum StateE { kConnecting, kConnected, kDisconnected, };
 
     void setState(StateE s) { state_ = s; }
-    void handleRead();
+    void handleRead(Timestamp receiveTime);
     void handleWrite();
     void handleClose();
     void handleError();
@@ -72,6 +72,7 @@ private:
     ConnectionCallback connectionCallback_;
     MessageCallback messageCallback_;
     CloseCallback closeCallback_;
+    Buffer inputBuffer_;
 };
 
 typedef std::shared_ptr<TcpConnection> TcpConnectionPtr;

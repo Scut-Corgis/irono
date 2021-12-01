@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2021-11-26 22:46:28
+ * @LastEditTime: 2021-12-01 15:15:49
+ * @LastEditors: your name
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: /irono/irono/base/AsyncLogging.h
+ */
 #pragma once
 #include <memory>
 #include <vector>
@@ -16,49 +24,59 @@ public:
 
     AsyncLogging(const std::string& basename,
                int flushInterval = 3);
+
     ~AsyncLogging() {
         if (running_) {
             stop();
         }
     }
 
-  void append(const char* logline, int len);
+    //日志前端工作区，通常有多个线程同时访问
+    void append(const char* logline, int len);
 
-  void start()
-  {
-    running_ = true;
-    thread_.start();
-    latch_.wait();
-  }
+    //开启后端日志线程
+    void start() {
+        running_ = true;
+        thread_.start();
+        latch_.wait();
+    }
 
-  void stop()
-  {
-    running_ = false;
-    cond_.notify();
-    thread_.join();
-  }
+    void stop() {
+        running_ = false;
+        cond_.notify();
+        thread_.join();
+    }
 
-  LogFile& output() {return output_;}
+    LogFile& output() {return output_;}
 
- private:
+private:
 
-  void threadFunc();
+    //日志后端线程工作函数，由唯一的logging线程控制
+    void threadFunc();
 
-  typedef FixedBuffer<kLargeBuffer> Buffer;
-  typedef std::vector<std::unique_ptr<Buffer>> BufferVector;
-  typedef BufferVector::value_type BufferPtr;
+    typedef FixedBuffer<kLargeBuffer> Buffer;
+    typedef std::vector<std::unique_ptr<Buffer>> BufferVector;
+    typedef BufferVector::value_type BufferPtr;
 
-  const int flushInterval_;
-  bool running_;
-  const std::string basename_;
-  Thread thread_;
-  CountDownLatch latch_;
-  MutexLock mutex_;
-  Condition cond_ ;
-  BufferPtr currentBuffer_ ;
-  BufferPtr nextBuffer_ ;
-  BufferVector buffers_ ;
-  LogFile output_;
+    //刷新到磁盘的间隔时间，单位s
+    const int flushInterval_;
+    bool running_;
+    //log日志文件名
+    const std::string basename_;
+    Thread thread_;
+    CountDownLatch latch_;
+    MutexLock mutex_;
+    Condition cond_ ;
+
+    //日志前端Buffer
+    BufferPtr currentBuffer_ ;
+    BufferPtr nextBuffer_ ;
+
+    //总Buffer，日志后端线程将其写入磁盘
+    BufferVector buffers_ ;
+
+    //实际的底层文件操作者
+    LogFile output_;
 };
 
 }

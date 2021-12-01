@@ -1,3 +1,4 @@
+
 #pragma once
 #include <functional>
 #include "../base/noncopyable.h"
@@ -11,9 +12,7 @@ namespace irono
 class EventLoop;
 class InetAddress;
 
-///
-/// Acceptor of incoming TCP connections.
-///
+///监听套接字类，理论上一个端口配一个，没有特别需求的话，一个主Reactor才会拥有一个Acceptor对象
 class Acceptor : noncopyable {
 public:
     typedef std::function<void (int sockfd,

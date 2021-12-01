@@ -1,3 +1,4 @@
+
 // excerpts from http://code.google.com/p/muduo/
 //
 // Use of this source code is governed by a BSD-style license
@@ -38,7 +39,7 @@ TcpConnection::TcpConnection(EventLoop* loop,
     LOG_DEBUG << "TcpConnection::ctor[" <<  name_ << "] at " << this
                 << " fd=" << sockfd;
     channel_->setReadCallback(
-        bind(&TcpConnection::handleRead, this));
+        bind(&TcpConnection::handleRead, this, _1));
     channel_->setWriteCallback(
         bind(&TcpConnection::handleWrite, this));
     channel_->setCloseCallback(
@@ -68,20 +69,23 @@ void TcpConnection::connectDestroyed()
         setState(kDisconnected);
         channel_->disableAll();
 
+//最终析构关闭套接字时，这里会再次回调用户的函数。
         connectionCallback_(shared_from_this());
     }
     loop_->removeChannel(get_pointer(channel_));
 }
 
-void TcpConnection::handleRead() {
-    char buf[65536];
-    ssize_t n = ::read(channel_->fd(), buf, sizeof buf);
-    messageCallback_(shared_from_this(), buf, n);
+void TcpConnection::handleRead(Timestamp receiveTime) {
+    int savedErrno = 0;
+    ssize_t n = inputBuffer_.readFd(channel_->fd(), &savedErrno);
+
     if (n > 0) {
-        messageCallback_(shared_from_this(), buf, n);
+        messageCallback_(shared_from_this(), &inputBuffer_, receiveTime);
     } else if (n == 0) {
         handleClose();
     } else {
+        errno = savedErrno;
+        LOG_DEBUG<<"Tcpconnection::handleRead";
         handleError();
     }
 }
