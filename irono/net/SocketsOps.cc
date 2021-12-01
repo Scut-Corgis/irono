@@ -153,3 +153,9 @@ int sockets::getSocketError(int sockfd) {
         return optval;
     }
 }
+void sockets::shutdownWrite(int sockfd) {
+    if (::shutdown(sockfd, SHUT_WR) < 0)
+    {
+        LOG_DEBUG << "sockets::shutdownWrite return < 0";
+    }
+}

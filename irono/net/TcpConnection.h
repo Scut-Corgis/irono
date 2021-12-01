@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2021-11-29 19:23:28
+ * @LastEditTime: 2021-12-01 16:01:16
+ * @LastEditors: your name
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: /irono/irono/net/TcpConnection.h
+ */
 #pragma once
 
 #include "Callbacks.h"
@@ -37,6 +45,13 @@ public:
     const InetAddress& peerAddress() { return peerAddr_; }
     bool connected() const { return state_ == kConnected; }
 
+    //void send(const void* message, size_t len);
+    // Thread safe.
+    void send(const std::string& message);
+
+    // Thread safe.
+    void shutdown();
+
     void setConnectionCallback(const ConnectionCallback& cb)
     { connectionCallback_ = cb; }
 
@@ -51,7 +66,7 @@ public:
     //当TcpServer从map移除自己时调用
     void connectDestroyed();
 private:
-    enum StateE { kConnecting, kConnected, kDisconnected, };
+    enum StateE { kConnecting, kConnected, kDisconnecting, kDisconnected, };
 
     void setState(StateE s) { state_ = s; }
     void handleRead(Timestamp receiveTime);
@@ -59,6 +74,8 @@ private:
     void handleClose();
     void handleError();
 
+    void sendInLoop(const std::string& message);
+    void shutdownInLoop();
     EventLoop* loop_;
     std::string name_;
     StateE state_;  // FIXME: use atomic variable
@@ -73,6 +90,7 @@ private:
     MessageCallback messageCallback_;
     CloseCallback closeCallback_;
     Buffer inputBuffer_;
+    Buffer outputBuffer_;
 };
 
 typedef std::shared_ptr<TcpConnection> TcpConnectionPtr;

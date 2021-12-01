@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2021-11-29 15:38:33
+ * @LastEditTime: 2021-12-01 15:58:43
+ * @LastEditors: your name
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: /irono/irono/net/Socket.cc
+ */
 #include "Socket.h"
 
 #include "InetAddress.h"
@@ -37,3 +45,6 @@ void Socket::setReuseAddr(bool on) {
                 &optval, sizeof optval);
 }
 
+void Socket::shutdownWrite() {
+    sockets::shutdownWrite(sockfd_);
+}
