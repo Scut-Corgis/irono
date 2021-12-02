@@ -1,11 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2021-11-29 19:23:28
- * @LastEditTime: 2021-12-01 16:01:16
- * @LastEditors: your name
- * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
- * @FilePath: /irono/irono/net/TcpConnection.h
- */
 #pragma once
 
 #include "Callbacks.h"
@@ -52,8 +44,14 @@ public:
     // Thread safe.
     void shutdown();
 
+    //是否关闭Nagle算法
+    void setTcpNoDelay(bool on);
+
     void setConnectionCallback(const ConnectionCallback& cb)
     { connectionCallback_ = cb; }
+
+    void setWriteCompleteCallback(const WriteCompleteCallback& cb)
+    { writeCompleteCallback_ = cb; }
 
     void setMessageCallback(const MessageCallback& cb)
     { messageCallback_ = cb; }
@@ -88,6 +86,7 @@ private:
     InetAddress peerAddr_;
     ConnectionCallback connectionCallback_;
     MessageCallback messageCallback_;
+    WriteCompleteCallback writeCompleteCallback_;
     CloseCallback closeCallback_;
     Buffer inputBuffer_;
     Buffer outputBuffer_;

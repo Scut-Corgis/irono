@@ -1,19 +1,32 @@
-2021-12-02 22:02:57 TRACE 265500  fd = 3 events = 3 -- Poller.cc:58
-2021-12-02 22:02:57 TRACE 265500  EventLoop created 0x7FFFFFFFD9E0 in thread 265500 -- EventLoop.cc:45
-2021-12-02 22:02:57 TRACE 265500  fd = 5 events = 3 -- Poller.cc:58
-2021-12-02 22:02:57 TRACE 265500  fd = 6 events = 3 -- Poller.cc:58
-2021-12-02 22:02:59 TRACE 265500  1 events happended -- Poller.cc:26
-2021-12-02 22:02:59 DEBUG 265500  TcpServer::newConnection [0.0.0.0:9981] - new connection [0.0.0.0:9981#1] from 127.0.0.1:38612 -- TcpServer.cc:47
-2021-12-02 22:02:59 DEBUG 265500  TcpConnection::ctor[0.0.0.0:9981#1] at 0x5555555AB010 fd=7 -- TcpConnection.cc:39
-2021-12-02 22:02:59 TRACE 265500  fd = 7 events = 3 -- Poller.cc:58
-2021-12-02 22:03:24 DEBUG 265500  TcpConnection::sendInLoop : unkonw problem -- TcpConnection.cc:82
-2021-12-02 22:03:24 TRACE 265500  fd = 7 events = 7 -- Poller.cc:58
-2021-12-02 22:03:24 DEBUG 265500  Socket::accept -- SocketsOps.cc:78
-2021-12-02 22:03:24 TRACE 265500  1 events happended -- Poller.cc:26
-2021-12-02 22:03:24 TRACE 265500  TcpConnection::handleClose state = 2 -- TcpConnection.cc:181
-2021-12-02 22:03:24 TRACE 265500  fd = 7 events = 0 -- Poller.cc:58
-2021-12-02 22:03:24 DEBUG 265500  TcpServer::removeConnection [0.0.0.0:9981] - connection 0.0.0.0:9981#1 -- TcpServer.cc:63
-2021-12-02 22:03:24 TRACE 265500  Connection is down, no more writing -- TcpConnection.cc:175
-2021-12-02 22:03:24 TRACE 265500  fd = 7 events = 0 -- Poller.cc:58
-2021-12-02 22:03:24 TRACE 265500  fd = 7 -- Poller.cc:89
-2021-12-02 22:03:24 DEBUG 265500  TcpConnection::dtor[0.0.0.0:9981#1] at 0x5555555AB010 fd=7 -- TcpConnection.cc:52
+2021-12-02 22:57:51 TRACE 268251   nothing happended -- Poller.cc:29
+2021-12-02 22:57:53 TRACE 268251  1 events happended -- Poller.cc:26
+2021-12-02 22:57:53 DEBUG 268251  TcpServer::newConnection [0.0.0.0:9981] - new connection [0.0.0.0:9981#2] from 127.0.0.1:39584 -- TcpServer.cc:55
+2021-12-02 22:57:53 DEBUG 268251  TcpConnection::ctor[0.0.0.0:9981#2] at 0x55DDA784E7C0 fd=7 -- TcpConnection.cc:39
+2021-12-02 22:57:53 TRACE 268251  fd = 7 events = 3 -- Poller.cc:58
+2021-12-02 22:57:53 DEBUG 268251  Socket::accept -- SocketsOps.cc:78
+2021-12-02 22:58:03 TRACE 268251   nothing happended -- Poller.cc:29
+2021-12-02 22:58:08 TRACE 268251  1 events happended -- Poller.cc:26
+2021-12-02 22:58:16 TRACE 268251  1 events happended -- Poller.cc:26
+2021-12-02 22:58:16 TRACE 268251  TcpConnection::handleClose state = 1 -- TcpConnection.cc:187
+2021-12-02 22:58:16 TRACE 268251  fd = 7 events = 0 -- Poller.cc:58
+2021-12-02 22:58:16 DEBUG 268251  TcpServer::removeConnection [0.0.0.0:9981] - connection 0.0.0.0:9981#2 -- TcpServer.cc:72
+2021-12-02 22:58:16 TRACE 268251  fd = 7 events = 0 -- Poller.cc:58
+2021-12-02 22:58:16 TRACE 268251  fd = 7 -- Poller.cc:89
+2021-12-02 22:58:16 DEBUG 268251  TcpConnection::dtor[0.0.0.0:9981#2] at 0x55DDA784E7C0 fd=7 -- TcpConnection.cc:52
+2021-12-02 22:58:16 TRACE 268251  1 events happended -- Poller.cc:26
+2021-12-02 22:58:16 DEBUG 268251  TcpServer::newConnection [0.0.0.0:9981] - new connection [0.0.0.0:9981#3] from 127.0.0.1:39590 -- TcpServer.cc:55
+2021-12-02 22:58:16 DEBUG 268251  TcpConnection::ctor[0.0.0.0:9981#3] at 0x55DDA784E7C0 fd=7 -- TcpConnection.cc:39
+2021-12-02 22:58:16 TRACE 268251  fd = 7 events = 3 -- Poller.cc:58
+2021-12-02 22:58:16 DEBUG 268251  Socket::accept -- SocketsOps.cc:78
+2021-12-02 22:58:19 TRACE 268251  1 events happended -- Poller.cc:26
+2021-12-02 22:58:19 TRACE 268251  TcpConnection::handleClose state = 1 -- TcpConnection.cc:187
+2021-12-02 22:58:19 TRACE 268251  fd = 7 events = 0 -- Poller.cc:58
+2021-12-02 22:58:19 DEBUG 268251  TcpServer::removeConnection [0.0.0.0:9981] - connection 0.0.0.0:9981#3 -- TcpServer.cc:72
+2021-12-02 22:58:19 TRACE 268251  fd = 7 events = 0 -- Poller.cc:58
+2021-12-02 22:58:19 TRACE 268251  fd = 7 -- Poller.cc:89
+2021-12-02 22:58:19 DEBUG 268251  TcpConnection::dtor[0.0.0.0:9981#3] at 0x55DDA784E7C0 fd=7 -- TcpConnection.cc:52
+2021-12-02 22:58:29 TRACE 268251   nothing happended -- Poller.cc:29
+2021-12-02 22:58:39 TRACE 268251   nothing happended -- Poller.cc:29
+2021-12-02 22:58:49 TRACE 268251   nothing happended -- Poller.cc:29
+2021-12-02 22:58:59 TRACE 268251   nothing happended -- Poller.cc:29
+2021-12-02 22:59:09 TRACE 268251   nothing happended -- Poller.cc:29

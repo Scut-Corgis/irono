@@ -75,7 +75,10 @@ void TcpConnection::sendInLoop(const std::string& message) {
             if (static_cast<size_t>(nwrote) < message.size()) {
                 LOG_TRACE << "I am going to write more data";
             }
-        } 
+            else if (writeCompleteCallback_) {
+                loop_->queueInLoop( bind(writeCompleteCallback_, shared_from_this() ) );
+            } 
+        }
         else {
             nwrote = 0;
             if (errno != EWOULDBLOCK) {
@@ -158,6 +161,9 @@ void TcpConnection::handleWrite() {
             outputBuffer_.retrieve(n);
             if (outputBuffer_.readableBytes() == 0) {
                 channel_->disableWriting();
+                if (writeCompleteCallback_) {
+                    loop_->queueInLoop( bind(writeCompleteCallback_, shared_from_this() ) );
+                }
                 if (state_ == kDisconnecting) {
                     shutdownInLoop();
                 }
