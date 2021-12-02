@@ -1,8 +1,8 @@
 /*
  * @Author: your name
  * @Date: 2021-11-26 16:01:16
- * @LastEditTime: 2021-12-01 15:31:12
- * @LastEditors: your name
+ * @LastEditTime: 2021-12-02 21:44:17
+ * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: /irono/irono/base/Logging.h
  */
@@ -19,6 +19,7 @@ public:
     enum LogLevel {
         TRACE,
         DEBUG,
+        ERROR,
         FATAL,
         NUM_LOG_LEVELS,
     };
@@ -61,6 +62,8 @@ inline Logger::LogLevel Logger::logLevel() {
     irono::Logger(__FILE__, __LINE__, irono::Logger::TRACE).stream()
 #define LOG_DEBUG if (irono::Logger::LogLevel() <= irono::Logger::DEBUG) \
     irono::Logger(__FILE__, __LINE__, irono::Logger::DEBUG).stream()
+#define LOG_ERROR if (irono::Logger::LogLevel() <= irono::Logger::ERROR) \
+    irono::Logger(__FILE__, __LINE__, irono::Logger::ERROR).stream()
 #define LOG_FATAL if (irono::Logger::LogLevel() <= irono::Logger::FATAL) \
     irono::Logger(__FILE__, __LINE__, irono::Logger::FATAL).stream()
 

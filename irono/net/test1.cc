@@ -1,12 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2021-11-28 11:52:26
- * @LastEditTime: 2021-12-01 18:09:23
- * @LastEditors: Please set LastEditors
- * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
- * @FilePath: /irono/irono/net/test1.cc
- */
-
 #include "EventLoop.h"
 #include <stdio.h>
 #include "TimerId.h"
@@ -26,6 +17,14 @@ using namespace std;
 #include "InetAddress.h"
 #include <stdio.h>
 #include <string>
+#include "TcpServer.h"
+#include "EventLoop.h"
+#include "InetAddress.h"
+#include <stdio.h>
+
+std::string message1;
+std::string message2;
+
 void onConnection(const TcpConnectionPtr& conn)
 {
   if (conn->connected())
@@ -33,6 +32,10 @@ void onConnection(const TcpConnectionPtr& conn)
     printf("onConnection(): new connection [%s] from %s\n",
            conn->name().c_str(),
            conn->peerAddress().toHostPort().c_str());
+    ::sleep(5);
+    conn->send(message1);
+    conn->send(message2);
+    conn->shutdown();
   }
   else
   {
@@ -49,14 +52,27 @@ void onMessage(const TcpConnectionPtr& conn,
          buf->readableBytes(),
          conn->name().c_str(),
          receiveTime.toFormattedString().c_str());
-    // string s = buf->retrieveAsString();
-    // printf("%s",s.c_str());
-    conn->send(buf->retrieveAsString());
+
+  buf->retrieveAll();
 }
 
-int main()
+int main(int argc, char* argv[])
 {
   printf("main(): pid = %d\n", getpid());
+
+  int len1 = 100;
+  int len2 = 200;
+
+  if (argc > 2)
+  {
+    len1 = atoi(argv[1]);
+    len2 = atoi(argv[2]);
+  }
+
+  message1.resize(len1);
+  message2.resize(len2);
+  std::fill(message1.begin(), message1.end(), 'A');
+  std::fill(message2.begin(), message2.end(), 'B');
 
   InetAddress listenAddr(9981);
   EventLoop loop;
@@ -68,5 +84,6 @@ int main()
 
   loop.loop();
 }
+
 
 

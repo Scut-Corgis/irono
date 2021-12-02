@@ -79,7 +79,7 @@ void TcpConnection::sendInLoop(const std::string& message) {
         else {
             nwrote = 0;
             if (errno != EWOULDBLOCK) {
-                LOG_DEBUG << "TcpConnection::sendInLoop : unkonw problem";
+                LOG_DEBUG << "TcpConnection::sendInLoop : maybe SIGPIPE";
             }
         }
     }
@@ -193,9 +193,11 @@ void TcpConnection::handleClose() {
 void TcpConnection::handleError()
 {
     int err = sockets::getSocketError(channel_->fd());
-    LOG_FATAL << "TcpConnection::handleError [" << name_
+    LOG_ERROR << "TcpConnection::handleError [" << name_
             << "] - SO_ERROR = " << err << " " << strerror_tl(err);
 }
 
-
+void TcpConnection::setTcpNoDelay(bool on) {
+    socket_->setTcpNoDelay(on);
+}
 

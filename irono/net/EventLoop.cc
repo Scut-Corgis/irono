@@ -7,6 +7,7 @@
 #include "TimerQueue.h"
 #include <sys/eventfd.h>
 #include "TimerId.h"
+#include "sys/signal.h"
 using namespace irono;
 
 __thread EventLoop* t_loopInThisThread = 0;
@@ -19,6 +20,18 @@ static int createEventfd() {
     }
     return evtfd;
 }
+
+//很重要，一定要忽略SIGPIPE信号，不然服务器有崩溃的风险
+class IgnoreSigPipe {
+public:
+    IgnoreSigPipe() {
+        ::signal(SIGPIPE, SIG_IGN);
+    }
+};
+//用全局变量的方式帮助自己在程序开始前忽略信号
+IgnoreSigPipe initObj;
+
+
 
 EventLoop::EventLoop()
     : looping_(false),
