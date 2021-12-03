@@ -1,4 +1,5 @@
 
+
 #include "EventLoopThread.h"
 
 #include "EventLoop.h"
@@ -10,10 +11,10 @@ using namespace irono;
 
 EventLoopThread::EventLoopThread()
     : loop_(NULL),
-        exiting_(false),
-        thread_(std::bind(&EventLoopThread::threadFunc, this)),
-        mutex_(),
-        cond_(mutex_)
+      exiting_(false),
+      thread_(std::bind(&EventLoopThread::threadFunc, this)),
+      mutex_(),
+      cond_(mutex_)
 {}
 
 EventLoopThread::~EventLoopThread() {

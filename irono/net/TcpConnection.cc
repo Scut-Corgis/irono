@@ -120,6 +120,7 @@ void TcpConnection::connectEstablished() {
     setState(kConnected);
     channel_->enableReading();
 
+    //用户函数
     connectionCallback_(shared_from_this());
 }
 
@@ -140,6 +141,7 @@ void TcpConnection::handleRead(Timestamp receiveTime) {
     ssize_t n = inputBuffer_.readFd(channel_->fd(), &savedErrno);
 
     if (n > 0) {
+        LOG_TRACE<<"onMessage(): tid= "<<CurrentThread::tid()<<" received "<<inputBuffer_.readableBytes()<<" bytes";
         messageCallback_(shared_from_this(), &inputBuffer_, receiveTime);
     } else if (n == 0) {
         handleClose();
