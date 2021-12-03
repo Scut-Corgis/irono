@@ -5,6 +5,7 @@
 #include <strings.h>  // bzero
 #include <netinet/in.h>
 
+//静态的断言，帮助检查程序
 #include <boost/static_assert.hpp>
 
 //     /* Structure describing an Internet socket address.  */

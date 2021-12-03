@@ -38,6 +38,9 @@ public:
     TimerId runAt(const Timestamp& time, const TimerCallback& cb);
     TimerId runAfter(double delay, const TimerCallback& cb);
     TimerId runEvery(double interval, const TimerCallback& cb);
+
+    //取消定时器
+    void cancel(TimerId timerId);
 private:
 
     void abortNotInLoopThread();

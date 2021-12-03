@@ -33,17 +33,21 @@ public:
                     Timestamp when,
                     double interval);
 
-    // void cancel(TimerId timerId);
+    void cancel(TimerId timerId);
 
 private:
 
     //用pair来区别相同的时间的定时器
     typedef std::pair<Timestamp, Timer*> Entry;
     typedef std::set<Entry> TimerList;
-
+    //为删除定时器而增加的成员
+    typedef std::pair<Timer*, int64_t> ActiveTimer;
+    typedef std::set<ActiveTimer> ActiveTimerSet;
     // called when timerfd alarms
     void handleRead();
+
     void addTimerInLoop(Timer* timer);
+    void cancelInLoop(TimerId timerId);
     // move out all expired timers
     std::vector<Entry> getExpired(Timestamp now);
     void reset(const std::vector<Entry>& expired, Timestamp now);
@@ -55,6 +59,11 @@ private:
     Channel timerfdChannel_;
     // Timer list sorted by expiration
     TimerList timers_;
+
+    //是否正在调用过期时间事件
+    bool callingExpiredTimers_; /* atomic */
+    ActiveTimerSet activeTimers_;
+    ActiveTimerSet cancelingTimers_;
 };
 
 }

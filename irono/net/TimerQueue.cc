@@ -73,7 +73,8 @@ TimerQueue::TimerQueue(EventLoop* loop)
   : loop_(loop),
     timerfd_(createTimerfd()),
     timerfdChannel_(loop, timerfd_),
-    timers_()
+    timers_(),
+    callingExpiredTimers_(false)
 {
   timerfdChannel_.setReadCallback(
       bind(&TimerQueue::handleRead, this));
@@ -102,7 +103,7 @@ TimerId TimerQueue::addTimer(const TimerCallback& cb,
 
     //判断是否最早定时事件改变，timefd是时刻定最早的时，每次返回时再判断所有时间是否超时
 
-    return TimerId(timer);
+    return TimerId(timer, timer->sequence());
 }
 
 void TimerQueue::addTimerInLoop(Timer* timer) {
@@ -112,27 +113,50 @@ void TimerQueue::addTimerInLoop(Timer* timer) {
         resetTimerfd(timerfd_, timer->expiration());
     }
 }
-
-void TimerQueue::handleRead()
-{
-  loop_->assertInLoopThread();
-  Timestamp now(Timestamp::now());
-  readTimerfd(timerfd_, now);
-
-  std::vector<Entry> expired = getExpired(now);
-
-  // safe to callback outside critical section
-  for (std::vector<Entry>::iterator it = expired.begin();
-      it != expired.end(); ++it)
-  {
-    it->second->run();
-  }
-
-  reset(expired, now);
+void TimerQueue::cancel(TimerId timerId) {
+    loop_->runInLoop(
+        std::bind(&TimerQueue::cancelInLoop, this, timerId));
+}
+void TimerQueue::cancelInLoop(TimerId timerId) {
+    loop_->assertInLoopThread();
+    assert(timers_.size() == activeTimers_.size());
+    ActiveTimer timer(timerId.timer_, timerId.seq_);
+    ActiveTimerSet::iterator it = activeTimers_.find(timer);
+    if (it != activeTimers_.end()) {
+        size_t n = timers_.erase(Entry(it->first->expiration(), it->first));
+        assert(n == 1); (void)n;
+        delete it->first; 
+        activeTimers_.erase(it);
+    }
+    else if (callingExpiredTimers_) {
+        cancelingTimers_.insert(timer);
+    }
+    assert(timers_.size() == activeTimers_.size());
 }
 
-std::vector<TimerQueue::Entry> TimerQueue::getExpired(Timestamp now)
-{
+
+void TimerQueue::handleRead() {
+    loop_->assertInLoopThread();
+    Timestamp now(Timestamp::now());
+    readTimerfd(timerfd_, now);
+
+    std::vector<Entry> expired = getExpired(now);
+
+    callingExpiredTimers_ = true;
+    cancelingTimers_.clear();
+    // safe to callback outside critical section
+    for (std::vector<Entry>::iterator it = expired.begin();
+        it != expired.end(); ++it)
+    {
+        it->second->run();
+    }
+    callingExpiredTimers_ = false;
+
+    reset(expired, now);
+}
+
+std::vector<TimerQueue::Entry> TimerQueue::getExpired(Timestamp now) {
+    assert(timers_.size() == activeTimers_.size());
     std::vector<Entry> expired;
     Entry sentry = std::make_pair(now, reinterpret_cast<Timer*>(UINTPTR_MAX));
     //返回第一个未到期的定时器，最大指针的手法也很巧妙
@@ -143,6 +167,14 @@ std::vector<TimerQueue::Entry> TimerQueue::getExpired(Timestamp now)
     std::copy(timers_.begin(), it, back_inserter(expired));
     timers_.erase(timers_.begin(), it);
 
+    //删除activeTimers_的对应定时器
+    for(Entry& entry : expired) {
+        ActiveTimer timer(entry.second, entry.second->sequence());
+        size_t n = activeTimers_.erase(timer);
+        assert(n == 1); (void)n;
+    }
+
+    assert(timers_.size() == activeTimers_.size());
     return expired;
 }
 
@@ -154,16 +186,17 @@ void TimerQueue::reset(const std::vector<Entry>& expired, Timestamp now)
     for (std::vector<Entry>::const_iterator it = expired.begin();
         it != expired.end(); ++it)
     {
-        //如果定时器是不断重复的周期事件，则重新插入,不然就删除他
-        if (it->second->repeat())
+        ActiveTimer timer(it->second, it->second->sequence());
+        //如果定时器是不断重复的周期事件并且没有在正在删除的定时器列表中找到他，则重新插入,不然就删除他
+        if (it->second->repeat() && cancelingTimers_.find(timer) == cancelingTimers_.end())
         {
-        it->second->restart(now);
-        insert(it->second);
+            it->second->restart(now);
+            insert(it->second);
         }
         else
         {
-        // FIXME move to a free list
-        delete it->second;
+            //delete时机在此处
+            delete it->second;
         }
     }
         //获取下一个定时
@@ -178,20 +211,30 @@ void TimerQueue::reset(const std::vector<Entry>& expired, Timestamp now)
     }
     }
 
-bool TimerQueue::insert(Timer* timer)
-{
+bool TimerQueue::insert(Timer* timer) {
+    loop_->assertInLoopThread();
+    assert(timers_.size() == activeTimers_.size());
+
     bool earliestChanged = false;
     Timestamp when = timer->expiration();
     //set让排第一个就是最小的
     TimerList::iterator it = timers_.begin();
-    if (it == timers_.end() || when < it->first)
-    {
+    if (it == timers_.end() || when < it->first) {
         earliestChanged = true;
     }
-    //set的插入函数，可以返回一个插入位置的迭代器和是否插入成功的bool
-    std::pair<TimerList::iterator, bool> result =
-            timers_.insert(std::make_pair(when, timer));
-    assert(result.second);
+
+    {
+        std::pair<TimerList::iterator, bool> result = timers_.insert(Entry(when, timer));
+        assert(result.second); (void)result;
+    }
+    
+    {
+        //set的插入函数，可以返回一个插入位置的迭代器和是否插入成功的boo
+        std::pair<ActiveTimerSet::iterator, bool> result = activeTimers_.insert(ActiveTimer(timer, timer->sequence()));
+        assert(result.second); (void)result;
+    }
+
+    assert(timers_.size() == activeTimers_.size());
     return earliestChanged;
 }
 
