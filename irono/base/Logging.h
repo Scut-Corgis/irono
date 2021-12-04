@@ -1,11 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2021-11-26 16:01:16
- * @LastEditTime: 2021-12-02 21:44:17
- * @LastEditors: Please set LastEditors
- * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
- * @FilePath: /irono/irono/base/Logging.h
- */
 #pragma once
 
 #include "Timestamp.h"
@@ -32,6 +24,7 @@ public:
     static std::string getLogFileName() { return logFileName_; }
     typedef void (*OutputFunc)(const char* msg, int len);
 
+    static void setOutput(OutputFunc);
 private:
     class Impl {
     public:

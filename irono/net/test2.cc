@@ -69,7 +69,7 @@ void onMessage(const TcpConnectionPtr& conn,
 int main()
 {
   EventLoop loop;
-  InetAddress serverAddr("127.0.0.1", 9981);
+  InetAddress serverAddr("localhost", 9981);
   TcpClient client(&loop, serverAddr);
 
   client.setConnectionCallback(onConnection);

@@ -1,6 +1,7 @@
 #include "FileUtil.h"
 using namespace irono;
 using namespace std;
+
 AppendFile::AppendFile(string filename) : fp_(fopen(filename.c_str(), "ae")) {
     setbuffer(fp_, buffer_, sizeof buffer_);
 }

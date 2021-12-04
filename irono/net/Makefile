@@ -3,7 +3,7 @@ LIB_SRC = EventLoop.cc Poller.cc Channel.cc Timer.cc TimerQueue.cc EventLoopThre
 	SocketsOps.cc Acceptor.cc InetAddress.cc TcpConnection.cc TcpServer.cc \
 	Buffer.cc EventLoopThreadPool.cc Connector.cc TcpClient.cc
 BASE_SRC = ../base/AsyncLogging.cc ../base/CountDownLatch.cc ../base/FileUtil.cc ../base/LogFile.cc ../base/Logging.cc ../base/LogStream.cc ../base/Thread.cc ../base/Timestamp.cc  
-BINARIES = test1 test2
+BINARIES = test1 test2 test3
 
 all: $(BINARIES)
 
@@ -13,6 +13,8 @@ $(BINARIES):
 test1: test1.cc
 
 test2: test2.cc
+
+test3: test3.cc
 
 clean:
 	rm -f $(BINARIES) core

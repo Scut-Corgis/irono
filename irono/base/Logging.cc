@@ -1,11 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2021-11-26 16:19:20
- * @LastEditTime: 2021-12-02 21:40:09
- * @LastEditors: your name
- * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
- * @FilePath: /irono/irono/base/Logging.cc
- */
 #include "Logging.h"
 #include <string>
 #include <sys/time.h>
@@ -94,6 +86,10 @@ void Logger::Impl::formatTime() {
     struct tm* p_time = localtime(&time);
     strftime(str_t, 26, "%Y-%m-%d %H:%M:%S ", p_time);
     stream_ <<str_t;
+}
+
+void Logger::setOutput(OutputFunc out) {
+    g_output = out;
 }
 
 }//namespace irono
