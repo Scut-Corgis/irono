@@ -1,7 +1,6 @@
 #include "EventLoop.h"
 #include <stdio.h>
 #include "TimerId.h"
-#include "EventLoop.h"
 #include "EventLoopThread.h"
 #include "EventLoopThreadPool.h"
 #include <stdio.h>
@@ -22,6 +21,7 @@ using namespace std;
 #include "EventLoop.h"
 #include "InetAddress.h"
 #include <stdio.h>
+#include "EPoller.h"
 
 void onConnection(const TcpConnectionPtr& conn)
 {
@@ -50,7 +50,9 @@ void onMessage(const TcpConnectionPtr& conn,
          conn->name().c_str(),
          receiveTime.toFormattedString().c_str());
 
-  printf("onMessage(): [%s]\n", buf->retrieveAsString().c_str());
+    string s = buf->retrieveAsString();
+    conn->send(s);
+    printf("onMessage(): [%s]\n", s.c_str());
 }
 
 int main(int argc, char* argv[])

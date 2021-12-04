@@ -2,12 +2,12 @@
 #include "EventLoop.h"
 #include "../base/Logging.h"
 #include <assert.h>
-#include <poll.h>
-#include "Poller.h"
+#include <sys/epoll.h>
 #include "TimerQueue.h"
 #include <sys/eventfd.h>
 #include "TimerId.h"
 #include "sys/signal.h"
+#include "EPoller.h"
 using namespace irono;
 
 __thread EventLoop* t_loopInThisThread = 0;
@@ -38,10 +38,11 @@ EventLoop::EventLoop()
       quit_(false),
       callingPendingFunctors_(false),
       threadId_(CurrentThread::tid()),
-      poller_(new Poller(this)) ,
+      poller_(new EPoller(this)) ,
       timerQueue_(new TimerQueue(this)),
       wakeupFd_(createEventfd()) ,
-      wakeupChannel_(new Channel(this, wakeupFd_)) {
+      wakeupChannel_(new Channel(this, wakeupFd_)) 
+{
     LOG_TRACE << "EventLoop created " << this << " in thread " << threadId_;
     if (t_loopInThisThread) {
         LOG_FATAL << "Another EventLoop " << t_loopInThisThread

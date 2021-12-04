@@ -36,7 +36,7 @@ using namespace std;
 #include <stdio.h>
 #include <unistd.h>
 
-std::string message = "Hello\n";
+std::string message = "Hello";
 
 void onConnection(const TcpConnectionPtr& conn)
 {
@@ -62,8 +62,7 @@ void onMessage(const TcpConnectionPtr& conn,
          buf->readableBytes(),
          conn->name().c_str(),
          receiveTime.toFormattedString().c_str());
-
-  printf("onMessage(): [%s]\n", buf->retrieveAsString().c_str());
+    conn->send(buf->retrieveAsString());
 }
 
 int main()

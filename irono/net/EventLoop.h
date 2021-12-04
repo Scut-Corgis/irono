@@ -7,9 +7,10 @@
 #include "Channel.h"
 #include "TimerQueue.h"
 #include <functional>
+
 namespace irono {
 
-class Poller;
+class EPoller;
 
 class EventLoop : noncopyable {
 public:
@@ -52,7 +53,7 @@ private:
     bool looping_;
     bool quit_;
     bool callingPendingFunctors_;
-    std::unique_ptr<Poller> poller_;
+    std::unique_ptr<EPoller> poller_;
     std::unique_ptr<TimerQueue> timerQueue_;
     int wakeupFd_;
     std::unique_ptr<Channel> wakeupChannel_;

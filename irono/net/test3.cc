@@ -53,7 +53,7 @@ void bench(const char* type)
 {
   Timestamp start(Timestamp::now());
 
-  int n = 1000*1000*10;
+  int n = 1000*1000;
   const bool kLongLog = false;
   string empty = " ";
   string longStr(2890, 'X');
