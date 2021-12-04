@@ -1,11 +1,4 @@
-/*
- * @Author: your name
- * @Date: 2021-11-29 15:53:58
- * @LastEditTime: 2021-12-01 15:29:34
- * @LastEditors: your name
- * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
- * @FilePath: /irono/irono/net/Acceptor.cc
- */
+
 #include "Acceptor.h"
 
 #include "../base/Logging.h"
@@ -18,7 +11,7 @@
 using namespace irono;
 using namespace std;
 //最大并发连接数,可设置
-const int kMaxConnections = 1000;
+const int kMaxConnections = 20000;
 
 Acceptor::Acceptor(EventLoop* loop, const InetAddress& listenAddr)
     : loop_(loop),

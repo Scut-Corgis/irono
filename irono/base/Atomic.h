@@ -48,6 +48,10 @@ class AtomicIntegerT : noncopyable
     return addAndGet(1);
   }
 
+  T decrementAndGet()
+  {
+    return addAndGet(-1);
+  }
   void add(T x)
   {
     getAndAdd(x);

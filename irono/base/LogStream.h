@@ -46,6 +46,7 @@ public:
     LogStream& operator<<(unsigned long v);
     LogStream& operator<<(char v);
     LogStream& operator<<(const void* v);
+    LogStream& operator<<(double v);
     const Buffer& buffer() const {return buffer_;}
 private:
     Buffer buffer_;

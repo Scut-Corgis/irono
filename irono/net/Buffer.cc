@@ -11,6 +11,7 @@ using namespace irono;
 
 ssize_t Buffer::readFd(int fd, int* savedErrno)
 {
+    //64MB的栈临时缓冲区
   char extrabuf[65536];
   struct iovec vec[2];
   const size_t writable = writableBytes();

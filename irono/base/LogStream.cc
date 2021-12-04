@@ -92,6 +92,13 @@ LogStream& LogStream::operator<<(unsigned long v) {
     formatInteger(v);
     return *this;
 }
+LogStream& LogStream::operator<<(double v) {
+    if (buffer_.avail() >= kMaxNumericSize) {
+        int len = snprintf(buffer_.current(), kMaxNumericSize, "%.12g", v);
+        buffer_.add(len);
+    }
+    return *this;
+}
 template <typename T>
 void LogStream::formatInteger(T v) {
     if (buffer_.avail() >= kMaxNumericSize) {

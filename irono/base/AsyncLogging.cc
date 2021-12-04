@@ -96,7 +96,7 @@ void AsyncLogging::threadFunc()
       output_.append(buffer->data(), buffer->length());
     }
 
-    if (buffersToWrite.size() > 15)
+    if (buffersToWrite.size() > 10)
     {
       // drop non-bzero-ed buffers, avoid trashing
       buffersToWrite.resize(2);
