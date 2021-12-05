@@ -1,41 +1,19 @@
-#include "EventLoop.h"
+#include "../../net/EventLoop.h"
 #include <stdio.h>
-#include "TimerId.h"
-#include "EventLoop.h"
-#include "EventLoopThread.h"
-#include "EventLoopThreadPool.h"
-#include <stdio.h>
-#include "Socket.h"
-#include "Acceptor.h"
-#include "InetAddress.h"
-#include "SocketsOps.h"
-#include "TcpServer.h"
-
+#include "../../net/TimerId.h"
+#include "../../net/EventLoopThread.h"
+#include "../../net/EventLoopThreadPool.h"
+#include "../../net/Socket.h"
+#include "../../net/Acceptor.h"
+#include "../../net/InetAddress.h"
+#include "../../net/SocketsOps.h"
+#include <string>
+#include "../../net/TcpServer.h"
+#include "../../net/EPoller.h"
+#include "../../net/TcpClient.h"
+#include "../../base/Logging.h"
 using namespace irono;
 using namespace std;
-#include "TcpServer.h"
-#include "EventLoop.h"
-#include "InetAddress.h"
-#include <stdio.h>
-#include <string>
-#include "TcpServer.h"
-#include "EventLoop.h"
-#include "InetAddress.h"
-#include <stdio.h>
-#include "../base/LogFile.h"
-#include "EventLoop.h"
-#include "InetAddress.h"
-#include "TcpClient.h"
-#include <sys/resource.h>
-#include "../base/Logging.h"
-
-#include <functional>
-
-#include <utility>
-
-#include <stdio.h>
-#include <unistd.h>
-
 
 
 inline double timeDifference(Timestamp high, Timestamp low)
@@ -45,8 +23,6 @@ inline double timeDifference(Timestamp high, Timestamp low)
 }
 
 extern unsigned long g_total;
-FILE* g_file;
-std::unique_ptr<LogFile> g_logFile;
 
 
 void bench(const char* type)
@@ -72,7 +48,7 @@ void bench(const char* type)
 
 int main()
 {
-  getppid(); // for ltrace and strace
+  getppid();
 
   LOG_TRACE << "trace";
   LOG_DEBUG << "debug";
