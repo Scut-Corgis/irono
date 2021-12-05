@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 #include <unistd.h>
-
+#include <iostream>
 using namespace irono;
 using namespace std;
 class Client;
@@ -127,6 +127,10 @@ public:
         }
         LOG_DEBUG << totalBytesRead << " total bytes read";
         LOG_DEBUG << totalMessagesRead << " total messages read";
+        double result1 = static_cast<double>(totalBytesRead) / static_cast<double>(totalMessagesRead);
+        double result2 = static_cast<double>(totalBytesRead) / (timeout_ * 1024 * 1024);
+        cout<<result1<<" average message size"<<endl;
+        cout<<result2<<"  MiB/s throughput"<<endl;
         LOG_DEBUG << static_cast<double>(totalBytesRead) / static_cast<double>(totalMessagesRead)
                 << " average message size";
         LOG_DEBUG << static_cast<double>(totalBytesRead) / (timeout_ * 1024 * 1024)
@@ -134,8 +138,8 @@ public:
         //注意这里转发给其从reactor，然后再转发给主reactor，因为它没有主reactor的指针
         conn->getLoop()->queueInLoop(std::bind(&Client::quit, this));
     }
-  }
-
+  } 
+ 
 private:
 
     void quit() {
