@@ -5,9 +5,6 @@
 #include <strings.h>  // bzero
 #include <netinet/in.h>
 
-//静态的断言，帮助检查程序
-#include <boost/static_assert.hpp>
-
 //     /* Structure describing an Internet socket address.  */
 //     struct sockaddr_in {
 //         sa_family_t    sin_family; /* address family: AF_INET */
@@ -25,7 +22,7 @@ using namespace irono;
 
 static const in_addr_t kInaddrAny = INADDR_ANY;
 
-BOOST_STATIC_ASSERT(sizeof(InetAddress) == sizeof(struct sockaddr_in));
+static_assert(sizeof(InetAddress) == sizeof(struct sockaddr_in));
 
 InetAddress::InetAddress(uint16_t port) {
     bzero(&addr_, sizeof addr_);

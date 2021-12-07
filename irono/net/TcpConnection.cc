@@ -10,7 +10,6 @@
 #include <errno.h>
 #include <stdio.h>
 #include "SocketsOps.h"
-#include "../base/Logging.h"
 
 using namespace irono;
 using namespace std;

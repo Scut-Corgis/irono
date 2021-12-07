@@ -2,7 +2,6 @@
 
 #include "Callbacks.h"
 #include "InetAddress.h"
-//#include <boost/any.hpp>
 #include "../base/noncopyable.h"
 #include <memory>
 #include "Buffer.h"
