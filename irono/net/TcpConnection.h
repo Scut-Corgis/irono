@@ -39,7 +39,8 @@ public:
     //void send(const void* message, size_t len);
     // Thread safe.
     void send(const std::string& message);
-
+    // this one will swap data
+    void send(Buffer* message);  
     // Thread safe.
     void shutdown();
 

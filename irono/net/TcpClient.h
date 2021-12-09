@@ -63,7 +63,7 @@ private:
     // always in loop thread
     int nextConnId_;
     mutable MutexLock mutex_;
-    TcpConnectionPtr connection_; // @BuardedBy mutex_
+    TcpConnectionPtr connection_; 
 };
 
 }

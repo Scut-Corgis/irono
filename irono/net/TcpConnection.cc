@@ -56,6 +56,18 @@ void TcpConnection::send(const std::string& message) {
     }
 }
 
+//直接把Buffer的全写出去
+void TcpConnection::send(Buffer* buf) {
+    if (state_ == kConnected) {
+        if (loop_->isInLoopThread()) {
+            sendInLoop(buf->retrieveAsString());
+        }
+        else {
+            loop_->runInLoop( bind(&TcpConnection::sendInLoop, this, buf->retrieveAsString() ) );
+        }
+    }
+}
+
 void TcpConnection::sendInLoop(const std::string& message) {
     loop_->assertInLoopThread();
     ssize_t nwrote = 0;

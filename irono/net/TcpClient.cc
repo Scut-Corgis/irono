@@ -1,4 +1,4 @@
-//十分粗略的实现
+//实现的还不够好
 #include "TcpClient.h"
 #include "Connector.h"
 #include "EventLoop.h"
@@ -13,6 +13,7 @@ using namespace irono;
 using namespace std;
 
 namespace irono {
+
 namespace other {
 
 void removeConnection(EventLoop* loop, const TcpConnectionPtr& conn)
@@ -43,6 +44,7 @@ TcpClient::TcpClient(EventLoop* loop,
             << "] - connector " << get_pointer(connector_);
 }
 
+//似乎对象生命期还没有完全解决。
 TcpClient::~TcpClient()
 {
     LOG_DEBUG << "TcpClient::~TcpClient[" << this
@@ -106,7 +108,7 @@ void TcpClient::newConnection(int sockfd) {
     conn->setMessageCallback(messageCallback_);
     conn->setWriteCompleteCallback(writeCompleteCallback_);
     conn->setCloseCallback(
-        bind(&TcpClient::removeConnection, this, _1)); // FIXME: unsafe
+        bind(&TcpClient::removeConnection, this, _1)); 
     {
         MutexLockGuard lock(mutex_);
         connection_ = conn;
