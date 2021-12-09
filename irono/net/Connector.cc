@@ -108,8 +108,6 @@ void Connector::connecting(int sockfd) {
     channel_->setErrorCallback(
         std::bind(&Connector::handleError, this));
 
-    // channel_->tie(shared_from_this()); is not working,
-    // as channel_ is not managed by shared_ptr
     channel_->enableWriting();
 }
 

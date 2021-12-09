@@ -10,6 +10,7 @@
 #include <string>
 #include "../../net/TcpServer.h"
 #include "../../net/EPoller.h"
+#include "../../base/Logging.h"
 using namespace irono;
 using namespace std;
 
@@ -21,6 +22,8 @@ void onConnection(const TcpConnectionPtr& conn)
            CurrentThread::tid(),
            conn->name().c_str(),
            conn->peerAddress().toHostPort().c_str());
+    LOG_INFO<<"`````````````````````````````````````````````````````";
+    LOG_ERROR<<"````````````````````````````````````````````````````";
   }
   else
   {

@@ -28,6 +28,7 @@ const char* LogLevelName[Logger::NUM_LOG_LEVELS] =
 {
   "TRACE ",
   "DEBUG ",
+  "INFO  ",
   "ERROR ",
   "FATAL ",
 };
