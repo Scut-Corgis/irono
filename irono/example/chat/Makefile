@@ -1,7 +1,7 @@
 CXXFLAGS = -O2 -g -I ../.. -pthread
 LIB_SRC = ../../net/*.cc
 BASE_SRC = ../../base/*.cc 
-BINARIES = client server server_threaded server_threaded_efficient
+BINARIES = client server server_threaded server_threaded_efficient server_threaded_highperformance
 
 all: $(BINARIES)
 
@@ -16,6 +16,7 @@ server_threaded: server_threaded.cc
 
 server_threaded_efficient: server_threaded_efficient.cc
 
+server_threaded_highperformance: server_threaded_highperformance.cc
 
 clean:
 	rm -f $(BINARIES) core

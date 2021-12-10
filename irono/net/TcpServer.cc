@@ -14,14 +14,13 @@ using namespace irono;
 using namespace std;
 TcpServer::TcpServer(EventLoop* loop, const InetAddress& listenAddr)
     : loop_(CHECK_NOTNULL(loop)),
-        name_(listenAddr.toHostPort()),
-        acceptor_(new Acceptor(loop, listenAddr)),
-        threadPool_(new EventLoopThreadPool(loop)),
-        started_(false),
-        nextConnId_(1)
+      name_(listenAddr.toHostPort()),
+      acceptor_(new Acceptor(loop, listenAddr)),
+      threadPool_(new EventLoopThreadPool(loop, name_) ),
+      started_(false),
+      nextConnId_(1)
 {
-    acceptor_->setNewConnectionCallback(
-    bind(&TcpServer::newConnection, this, _1, _2));
+    acceptor_->setNewConnectionCallback( bind(&TcpServer::newConnection, this, _1, _2));
 }
 
 TcpServer::~TcpServer()
@@ -37,7 +36,7 @@ void TcpServer::setThreadNum(int numThreads) {
 void TcpServer::start() {
     if (!started_) {
         started_ = true;
-        threadPool_->start();
+        threadPool_->start(threadInitCallback_);
     }
 
     if (!acceptor_->listenning()) {

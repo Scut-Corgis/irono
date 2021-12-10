@@ -16,6 +16,7 @@ class EventLoopThreadPool;
 
 class TcpServer : noncopyable {
 public:
+    typedef std::function<void(EventLoop*)> ThreadInitCallback;
 
     TcpServer(EventLoop* loop, const InetAddress& listenAddr);
     ~TcpServer();  // force out-line dtor, for unique_ptr members.
@@ -26,6 +27,10 @@ public:
     /// Thread safe.
     void start();
 
+    ///此回调每次创建I/O线程时会触发
+    void setThreadInitCallback(const ThreadInitCallback& cb)
+    { threadInitCallback_ = cb; }
+    
     /// Set connection callback.
     /// Not thread safe.
     void setConnectionCallback(const ConnectionCallback& cb)
@@ -71,6 +76,7 @@ public:
     MessageCallback messageCallback_;
     WriteCompleteCallback writeCompleteCallback_;
     bool started_;
+    ThreadInitCallback threadInitCallback_;
     int nextConnId_;  // always in loop thread
     ConnectionMap connections_;
 };

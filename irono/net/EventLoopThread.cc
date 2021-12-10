@@ -9,12 +9,14 @@
 
 using namespace irono;
 
-EventLoopThread::EventLoopThread()
+EventLoopThread::EventLoopThread(const ThreadInitCallback& cb,
+                                 const std::string& name)
     : loop_(NULL),
       exiting_(false),
-      thread_(std::bind(&EventLoopThread::threadFunc, this)),
+      thread_(std::bind(&EventLoopThread::threadFunc, this), name),
       mutex_(),
-      cond_(mutex_)
+      cond_(mutex_),
+      callback_(cb)
 {}
 
 EventLoopThread::~EventLoopThread() {
@@ -29,9 +31,8 @@ EventLoop* EventLoopThread::startLoop() {
 
     {
         MutexLockGuard lock(mutex_);
-        while (loop_ == NULL)
-        {
-        cond_.wait();
+        while (loop_ == NULL) {
+            cond_.wait();
         }
     }
 
@@ -40,7 +41,11 @@ EventLoop* EventLoopThread::startLoop() {
 
 void EventLoopThread::threadFunc() {
     EventLoop loop;
-    
+
+    if (callback_) {
+        callback_(&loop);
+    }
+
     {
         MutexLockGuard lock(mutex_);
         loop_ = &loop;
@@ -48,6 +53,5 @@ void EventLoopThread::threadFunc() {
     }
 
     loop.loop();
-    //assert(exiting_);
 }
 

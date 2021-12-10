@@ -17,14 +17,17 @@ class EventLoopThread;
 
 class EventLoopThreadPool : noncopyable {
 public:
-    EventLoopThreadPool(EventLoop* baseLoop);
+    typedef std::function<void(EventLoop*)> ThreadInitCallback;
+
+    EventLoopThreadPool(EventLoop* baseLoop, const std::string& nameArg);
     ~EventLoopThreadPool();
     void setThreadNum(int numThreads) { numThreads_ = numThreads; }
-    void start();
+    void start(const ThreadInitCallback& cb = ThreadInitCallback());
     EventLoop* getNextLoop();
 
 private:
     EventLoop* baseLoop_;
+    std::string name_;
     bool started_;
     int numThreads_;
     int next_;  // always in loop thread
