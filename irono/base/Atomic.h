@@ -1,6 +1,6 @@
 //这个是从Muduo copy过来的Lock-free设计，
 //我没有去深究原理，只是知道用这里的函数可以使变量原子的变化大小
-
+//made in 2021.12.24
 #pragma once
 #include "noncopyable.h"
 #include <stdint.h>
