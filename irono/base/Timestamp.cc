@@ -28,7 +28,7 @@ std::string Timestamp::toString() const {
     return buf;
 }
 
-//源码有bug,时区不对，我改成了localtime，就时间对了，注释掉的是源码
+//不采用时区变化,我改用了localtime，就时间对了，注释的是muduo的一种方法
 std::string Timestamp::toFormattedString() const {
     char buf[64] = {0};
     time_t seconds = static_cast<time_t>(microSecondsSinceEpoch_ / kMicroSecondsPerSecond);

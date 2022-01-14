@@ -13,16 +13,13 @@ class Channel;
 class EventLoop;
 class Socket;
 
-///
-/// TCP connection, for both client and server usage.
-///
+/// Tcp连接对象， client 和 server 用该对象进行Tcp连接的管理
 class TcpConnection : noncopyable,
                       public std::enable_shared_from_this<TcpConnection>
 {
 public:
-    /// Constructs a TcpConnection with a connected sockfd
-    ///
-    /// User should not create this object.
+    /// 使用sockfd创建Tcp连接对象
+    /// 由框架创建，使用者不应该创建它.
     TcpConnection(EventLoop* loop,
                     const std::string& name,
                     int sockfd,
@@ -37,11 +34,11 @@ public:
     bool connected() const { return state_ == kConnected; }
 
     //void send(const void* message, size_t len);
-    // Thread safe.
+    // 线程安全.
     void send(const std::string& message);
     // this one will swap data
     void send(Buffer* message);  
-    // Thread safe.
+    // 线程安全.
     void shutdown();
 
     //是否关闭Nagle算法
@@ -56,7 +53,7 @@ public:
     void setMessageCallback(const MessageCallback& cb)
     { messageCallback_ = cb; }
 
-    /// Internal use only.
+    /// 仅供框架内部使用.
     void setCloseCallback(const CloseCallback& cb)
     {closeCallback_ = cb;}
     // called when TcpServer accepts a new connection
@@ -76,7 +73,7 @@ private:
     void shutdownInLoop();
     EventLoop* loop_;
     std::string name_;
-    StateE state_;  // FIXME: use atomic variable
+    StateE state_; 
     // we don't expose those classes to client.
     std::unique_ptr<Socket> socket_;
     std::unique_ptr<Channel> channel_;

@@ -1,4 +1,4 @@
-//好好学习Buffer的实现，书上已经讲的十分详细了，自己读完了源码并加了一些注释和理解。
+//好好学习Muduo Buffer的实现，书上已经讲的十分详细了，自己读完了源码并加了一些注释和理解。
 #pragma once
 #include "../base/copyable.h"
 
@@ -162,6 +162,7 @@ class Buffer : public copyable
     else
     {
       // move readable data to the front, make space inside buffer
+      // Buffer空间够用，往前挪动
       assert(kCheapPrepend < readerIndex_);
       size_t readable = readableBytes();
       std::copy(begin()+readerIndex_,

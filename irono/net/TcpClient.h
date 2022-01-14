@@ -1,4 +1,4 @@
-///一个十分粗略的实现，最多测试的时候用用，很多东西没想清楚
+///一个粗略的实现，最多测试的时候用用，很多东西没想清楚
 
 #pragma once
 #include "../base/noncopyable.h"
@@ -18,7 +18,7 @@ class TcpClient : noncopyable
 public:
     TcpClient(EventLoop* loop,
                 const InetAddress& serverAddr);
-    ~TcpClient();  // force out-line dtor, for unique_ptr members.
+    ~TcpClient();  
 
     void connect();
     void disconnect();
@@ -54,12 +54,12 @@ private:
     void removeConnection(const TcpConnectionPtr& conn);
 
     EventLoop* loop_;
-    ConnectorPtr connector_; // avoid revealing Connector
+    ConnectorPtr connector_; 
     ConnectionCallback connectionCallback_;
     MessageCallback messageCallback_;
     WriteCompleteCallback writeCompleteCallback_;
-    bool retry_;   // atmoic
-    bool connect_; // atomic
+    bool retry_;   
+    bool connect_; 
     // always in loop thread
     int nextConnId_;
     mutable MutexLock mutex_;

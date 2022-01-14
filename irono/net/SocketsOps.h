@@ -37,9 +37,7 @@ inline uint16_t networkToHost16(uint16_t net16)
     return ntohs(net16);
 }
 
-///
-/// Creates a non-blocking socket file descriptor,
-/// abort if any error.
+/// 创建非阻塞套接字文件描述符，有错误调用abort
 int createNonblockingOrDie();
 int  connect(int sockfd, const struct sockaddr_in& addr);
 void bindOrDie(int sockfd, const struct sockaddr_in& addr);

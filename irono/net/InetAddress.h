@@ -8,10 +8,9 @@
 namespace irono
 {
 
-///
-/// Wrapper of sockaddr_in.
-///
-/// This is an POD interface class.
+
+/// sockaddr_in的封装
+/// 标量类型，值语义
 class InetAddress : public copyable
 {
 public:
@@ -31,7 +30,7 @@ public:
 
     std::string toHostPort() const;
 
-    // default copy/assignment are Okay
+    // default copy/assignment are Ok
 
     const struct sockaddr_in& getSockAddrInet() const { return addr_; }
     void setSockAddrInet(const struct sockaddr_in& addr) { addr_ = addr; }

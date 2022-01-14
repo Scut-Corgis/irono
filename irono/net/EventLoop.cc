@@ -52,7 +52,7 @@ EventLoop::EventLoop()
         t_loopInThisThread = this;
     }
     wakeupChannel_->setReadCallback(std::bind(&EventLoop::handleRead, this));
-  // we are always reading the wakeupfd
+  // wakeupfd默认开启
     wakeupChannel_->enableReading();
 }
 

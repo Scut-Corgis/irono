@@ -19,7 +19,7 @@ public:
     typedef std::function<void(EventLoop*)> ThreadInitCallback;
 
     TcpServer(EventLoop* loop, const InetAddress& listenAddr);
-    ~TcpServer();  // force out-line dtor, for unique_ptr members.
+    ~TcpServer(); 
 
     /// Starts the server if it's not listenning.
     ///
@@ -70,7 +70,7 @@ public:
 
     EventLoop* loop_;  // the acceptor loop
     const std::string name_;
-    std::unique_ptr<Acceptor> acceptor_; // avoid revealing Acceptor
+    std::unique_ptr<Acceptor> acceptor_; 
     std::unique_ptr<EventLoopThreadPool> threadPool_;   //reactors I/O线程池
     ConnectionCallback connectionCallback_;
     MessageCallback messageCallback_;

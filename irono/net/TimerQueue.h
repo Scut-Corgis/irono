@@ -15,10 +15,7 @@ class EventLoop;
 class Timer;
 class TimerId;
 
-///
-/// A best efforts timer queue.
-/// No guarantee that the callback will be on time.
-///
+/// 不保证会准时触发事件，会尽力而为
 class TimerQueue : noncopyable {
 public:
     TimerQueue(EventLoop* loop);
@@ -48,7 +45,7 @@ private:
 
     void addTimerInLoop(Timer* timer);
     void cancelInLoop(TimerId timerId);
-    // move out all expired timers
+    // 用于移除所有 expired timers
     std::vector<Entry> getExpired(Timestamp now);
     void reset(const std::vector<Entry>& expired, Timestamp now);
 
@@ -61,7 +58,7 @@ private:
     TimerList timers_;
 
     //是否正在调用过期时间事件
-    bool callingExpiredTimers_; /* atomic */
+    bool callingExpiredTimers_; 
     ActiveTimerSet activeTimers_;
     ActiveTimerSet cancelingTimers_;
 };

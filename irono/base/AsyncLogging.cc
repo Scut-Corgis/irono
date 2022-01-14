@@ -64,7 +64,7 @@ void AsyncLogging::threadFunc()
 
     {
       MutexLockGuard lock(mutex_);
-      if (buffers_.empty())  // unusual usage!
+      if (buffers_.empty())  // 不使用while是为了能够周期刷盘
       {
         cond_.waitForSeconds(flushInterval_);
       }
@@ -92,13 +92,12 @@ void AsyncLogging::threadFunc()
 
     for (const auto& buffer : buffersToWrite)
     {
-      // FIXME: use unbuffered stdio FILE ? or use ::writev ?
       output_.append(buffer->data(), buffer->length());
     }
 
     if (buffersToWrite.size() > 10)
     {
-      // drop non-bzero-ed buffers, avoid trashing
+      //防止日志过多内存爆炸，保护措施
       buffersToWrite.resize(2);
     }
 

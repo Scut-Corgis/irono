@@ -8,7 +8,7 @@ class Timer;
 
 ///
 /// An opaque identifier, for canceling Timer.
-///
+/// 仅用于唯一的标识Timer
 class TimerId : public copyable {
 public:
     TimerId(Timer* timer = NULL, int64_t seq = 0)

@@ -150,7 +150,7 @@ void Connector::handleWrite() {
         }
     }
     else {
-        // what happened?我也不懂。。。
+        // what happened? 这个看Muduo源码的分支语句，没理解
         assert(state_ == kDisconnected);
     }
 }

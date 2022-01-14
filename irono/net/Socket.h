@@ -6,11 +6,8 @@ namespace irono
 
 class InetAddress;
 
-///
-/// Wrapper of socket file descriptor.
-///
-/// It closes the sockfd when desctructs.
-/// It's thread safe, all operations are delagated to OS.
+/// 套接字文件描述符的封装，析构时关闭套接字
+/// 线程安全，所有操作转交给了操作系统
 class Socket : noncopyable {
 public:
     explicit Socket(int sockfd)
@@ -26,10 +23,8 @@ public:
     /// abort if address in use
     void listen();
 
-    /// On success, returns a non-negative integer that is
-    /// a descriptor for the accepted socket, which has been
-    /// set to non-blocking and close-on-exec. *peeraddr is assigned.
-    /// On error, -1 is returned, and *peeraddr is untouched.
+    /// 成功则返回非负整数表示accepted socket，已经设为非阻塞，*peeraddr is assigned
+    /// 错误时返回-1，*peeraddr is untouched
     int accept(InetAddress* peeraddr);
 
     ///

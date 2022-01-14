@@ -3,9 +3,6 @@
 #include "Channel.h"
 #include "../base/Logging.h"
 
-
-#include <boost/static_assert.hpp>
-
 #include <assert.h>
 #include <errno.h>
 #include <poll.h>
@@ -13,14 +10,13 @@
 
 using namespace irono;
 
-// On Linux, the constants of poll(2) and epoll(4)
-// are expected to be the same.
-BOOST_STATIC_ASSERT(EPOLLIN == POLLIN);
-BOOST_STATIC_ASSERT(EPOLLPRI == POLLPRI);
-BOOST_STATIC_ASSERT(EPOLLOUT == POLLOUT);
-BOOST_STATIC_ASSERT(EPOLLRDHUP == POLLRDHUP);
-BOOST_STATIC_ASSERT(EPOLLERR == POLLERR);
-BOOST_STATIC_ASSERT(EPOLLHUP == POLLHUP);
+// 在Linux中，这些常量应该相等
+static_assert(EPOLLIN == POLLIN);
+static_assert(EPOLLPRI == POLLPRI);
+static_assert(EPOLLOUT == POLLOUT);
+static_assert(EPOLLRDHUP == POLLRDHUP);
+static_assert(EPOLLERR == POLLERR);
+static_assert(EPOLLHUP == POLLHUP);
 
 namespace
 {
@@ -88,7 +84,7 @@ void EPoller::updateChannel(Channel* channel) {
     LOG_TRACE << "fd = " << channel->fd() << " events = " << channel->events();
     const int index = channel->index();
     if (index == kNew || index == kDeleted) {
-        // a new one, add with EPOLL_CTL_ADD
+        // EPOLL_CTL_ADD 增加新Channel
         int fd = channel->fd();
         if (index == kNew) {
             assert(channels_.find(fd) == channels_.end());
@@ -103,7 +99,7 @@ void EPoller::updateChannel(Channel* channel) {
         update(EPOLL_CTL_ADD, channel);
     }
     else {
-        // update existing one with EPOLL_CTL_MOD/DEL
+        // 更新存在的channel 使用 EPOLL_CTL_MOD/DEL
         int fd = channel->fd();
         (void)fd;
         assert(channels_.find(fd) != channels_.end());

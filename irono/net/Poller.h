@@ -15,7 +15,7 @@ class Channel;
 ///
 /// IO Multiplexing with poll(2).
 ///
-/// This class doesn't own the Channel objects.
+/// 该类不拥有(管理) channel对象的生命期
 class Poller : noncopyable {
 public:
     typedef std::vector<Channel*> ChannelList;

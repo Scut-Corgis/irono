@@ -3,9 +3,7 @@
 namespace irono
 {
 
-/// A tag class emphasises the objects are copyable.
-/// The empty base class optimization applies.
-/// Any derived class of copyable should be a value type.
+/// 变量是可拷贝的值语义，则继承它
 class copyable
 {
  protected:

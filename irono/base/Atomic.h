@@ -1,5 +1,4 @@
-//这个是从Muduo copy过来的Lock-free设计，
-//我没有去深究原理，只是知道用这里的函数可以使变量原子的变化大小
+//调的包，这个包含变量 原子读写的linux系统调用
 //made in 2021.12.24
 #pragma once
 #include "noncopyable.h"
@@ -15,18 +14,6 @@ class AtomicIntegerT : noncopyable
     : value_(0)
   {
   }
-
-  // uncomment if you need copying and assignment
-  //
-  // AtomicIntegerT(const AtomicIntegerT& that)
-  //   : value_(that.get())
-  // {}
-  //
-  // AtomicIntegerT& operator=(const AtomicIntegerT& that)
-  // {
-  //   getAndSet(that.get());
-  //   return *this;
-  // }
 
   T get() const
   {

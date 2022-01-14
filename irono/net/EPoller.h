@@ -13,9 +13,9 @@ namespace irono
 class Channel;
 
 ///
-/// IO Multiplexing with epoll(4).
+/// IO Multiplexing with epoll.
 ///
-/// This class doesn't own the Channel objects.
+/// 该类不负责管理channel
 class EPoller : noncopyable {
 public:
     typedef std::vector<Channel*> ChannelList;

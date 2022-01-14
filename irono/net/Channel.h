@@ -8,12 +8,8 @@ namespace irono
 
 class EventLoop;
 
-///
-/// A selectable I/O channel.
-///
-/// This class doesn't own the file descriptor.
-/// The file descriptor could be a socket,
-/// an eventfd, a timerfd, or a signalfd
+/// 连接I/O复用器(Poll等) 和 上层应用(Timer等) 的中间层，上层应用通过它注册回调函数，channel在I/O事件发生时触发对应回调
+/// 该类不拥有文件描述符(即不由它管理生命期)， 它的fd可以是套接字，事件fd，timerfd或者信号fd
 class Channel : noncopyable {
 public:
     typedef std::function<void()> EventCallback;
