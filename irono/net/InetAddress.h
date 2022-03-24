@@ -27,7 +27,7 @@ public:
     InetAddress(const struct sockaddr_in& addr)
     : addr_(addr)
     { }
-
+    
     std::string toHostPort() const;
 
     // default copy/assignment are Ok

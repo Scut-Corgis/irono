@@ -3,7 +3,6 @@
 #include "../base/Logging.h"
 #include "EventLoop.h"
 #include "Timer.h"
-#include "TimerId.h"
 
 #include <functional>
 #include <assert.h>

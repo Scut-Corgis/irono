@@ -1,0 +1,370 @@
+2022-03-24 16:13:52 TRACE 95578  fd = 4 events = 3 -- ../../net/EPoller.cc:84
+2022-03-24 16:13:52 TRACE 95578  EventLoop created 0x7FFE816505C0 in thread 95578 -- ../../net/EventLoop.cc:46
+2022-03-24 16:13:52 TRACE 95578  fd = 6 events = 3 -- ../../net/EPoller.cc:84
+2022-03-24 16:13:52 INFO  95578  pid = 95578, idle seconds = 10 -- main.cc:17
+2022-03-24 16:13:52 INFO  95578  size = 0 -- echo.cc:73
+2022-03-24 16:13:52 TRACE 95578  fd = 7 events = 3 -- ../../net/EPoller.cc:84
+2022-03-24 16:13:55 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:13:55 DEBUG 95578  TcpServer::newConnection [0.0.0.0:2007] - new connection [0.0.0.0:2007#1] from 127.0.0.1:37806 -- ../../net/TcpServer.cc:55
+2022-03-24 16:13:55 DEBUG 95578  TcpConnection::ctor[0.0.0.0:2007#1] at 0x559B87FA70A0 fd=8 -- ../../net/TcpConnection.cc:30
+2022-03-24 16:13:55 TRACE 95578  fd = 8 events = 3 -- ../../net/EPoller.cc:84
+2022-03-24 16:13:55 INFO  95578  EchoServer - 127.0.0.1:37806 -> 127.0.0.1:2007 is UP -- echo.cc:31
+2022-03-24 16:13:55 INFO  95578  size = 1 -- echo.cc:73
+2022-03-24 16:13:55 DEBUG 95578  Socket::accept -- ../../net/SocketsOps.cc:82
+2022-03-24 16:13:55 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:13:55 TRACE 95578  TimerQueue::handleRead() 1 at 1648109635.823965 -- ../../net/TimerQueue.cc:46
+2022-03-24 16:13:55 INFO  95578  size = 1 -- echo.cc:73
+2022-03-24 16:13:57 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:13:57 TRACE 95578  onMessage(): tid= 95578 received 23 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:13:57 INFO  95578  0.0.0.0:2007#1 echo 23 bytes at 1648109637.595980 -- echo.cc:54
+2022-03-24 16:13:57 INFO  95578  size = 2 -- echo.cc:73
+2022-03-24 16:13:58 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:13:58 TRACE 95578  onMessage(): tid= 95578 received 5 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:13:58 INFO  95578  0.0.0.0:2007#1 echo 5 bytes at 1648109638.555720 -- echo.cc:54
+2022-03-24 16:13:58 INFO  95578  size = 2 -- echo.cc:73
+2022-03-24 16:13:58 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:13:58 TRACE 95578  TimerQueue::handleRead() 1 at 1648109638.824257 -- ../../net/TimerQueue.cc:46
+2022-03-24 16:13:58 INFO  95578  size = 2 -- echo.cc:73
+2022-03-24 16:13:59 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:13:59 TRACE 95578  onMessage(): tid= 95578 received 3 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:13:59 INFO  95578  0.0.0.0:2007#1 echo 3 bytes at 1648109639.291777 -- echo.cc:54
+2022-03-24 16:13:59 INFO  95578  size = 3 -- echo.cc:73
+2022-03-24 16:13:59 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:13:59 TRACE 95578  onMessage(): tid= 95578 received 2 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:13:59 INFO  95578  0.0.0.0:2007#1 echo 2 bytes at 1648109639.691953 -- echo.cc:54
+2022-03-24 16:13:59 INFO  95578  size = 3 -- echo.cc:73
+2022-03-24 16:14:00 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:00 TRACE 95578  onMessage(): tid= 95578 received 3 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:00 INFO  95578  0.0.0.0:2007#1 echo 3 bytes at 1648109640.003564 -- echo.cc:54
+2022-03-24 16:14:00 INFO  95578  size = 3 -- echo.cc:73
+2022-03-24 16:14:00 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:00 TRACE 95578  onMessage(): tid= 95578 received 2 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:00 INFO  95578  0.0.0.0:2007#1 echo 2 bytes at 1648109640.291358 -- echo.cc:54
+2022-03-24 16:14:00 INFO  95578  size = 3 -- echo.cc:73
+2022-03-24 16:14:00 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:00 TRACE 95578  onMessage(): tid= 95578 received 2 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:00 INFO  95578  0.0.0.0:2007#1 echo 2 bytes at 1648109640.476071 -- echo.cc:54
+2022-03-24 16:14:00 INFO  95578  size = 3 -- echo.cc:73
+2022-03-24 16:14:01 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:01 TRACE 95578  TimerQueue::handleRead() 1 at 1648109641.824685 -- ../../net/TimerQueue.cc:46
+2022-03-24 16:14:01 INFO  95578  size = 3 -- echo.cc:73
+2022-03-24 16:14:02 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:02 DEBUG 95578  TcpServer::newConnection [0.0.0.0:2007] - new connection [0.0.0.0:2007#2] from 127.0.0.1:37808 -- ../../net/TcpServer.cc:55
+2022-03-24 16:14:02 DEBUG 95578  TcpConnection::ctor[0.0.0.0:2007#2] at 0x559B87FB85A0 fd=9 -- ../../net/TcpConnection.cc:30
+2022-03-24 16:14:02 TRACE 95578  fd = 9 events = 3 -- ../../net/EPoller.cc:84
+2022-03-24 16:14:02 INFO  95578  EchoServer - 127.0.0.1:37808 -> 127.0.0.1:2007 is UP -- echo.cc:31
+2022-03-24 16:14:02 INFO  95578  size = 4 -- echo.cc:73
+2022-03-24 16:14:02 DEBUG 95578  Socket::accept -- ../../net/SocketsOps.cc:82
+2022-03-24 16:14:03 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:03 TRACE 95578  onMessage(): tid= 95578 received 2 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:03 INFO  95578  0.0.0.0:2007#1 echo 2 bytes at 1648109643.508199 -- echo.cc:54
+2022-03-24 16:14:03 INFO  95578  size = 5 -- echo.cc:73
+2022-03-24 16:14:04 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:04 TRACE 95578  onMessage(): tid= 95578 received 2 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:04 INFO  95578  0.0.0.0:2007#2 echo 2 bytes at 1648109644.651578 -- echo.cc:54
+2022-03-24 16:14:04 INFO  95578  size = 5 -- echo.cc:73
+2022-03-24 16:14:04 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:04 TRACE 95578  TimerQueue::handleRead() 1 at 1648109644.825519 -- ../../net/TimerQueue.cc:46
+2022-03-24 16:14:04 INFO  95578  size = 5 -- echo.cc:73
+2022-03-24 16:14:05 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:05 TRACE 95578  onMessage(): tid= 95578 received 2 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:05 INFO  95578  0.0.0.0:2007#1 echo 2 bytes at 1648109645.715305 -- echo.cc:54
+2022-03-24 16:14:05 INFO  95578  size = 6 -- echo.cc:73
+2022-03-24 16:14:06 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:06 TRACE 95578  onMessage(): tid= 95578 received 2 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:06 INFO  95578  0.0.0.0:2007#2 echo 2 bytes at 1648109646.779183 -- echo.cc:54
+2022-03-24 16:14:06 INFO  95578  size = 7 -- echo.cc:73
+2022-03-24 16:14:07 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:07 TRACE 95578  TimerQueue::handleRead() 1 at 1648109647.826159 -- ../../net/TimerQueue.cc:46
+2022-03-24 16:14:07 INFO  95578  size = 7 -- echo.cc:73
+2022-03-24 16:14:08 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:08 TRACE 95578  onMessage(): tid= 95578 received 4 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:08 INFO  95578  0.0.0.0:2007#1 echo 4 bytes at 1648109648.196558 -- echo.cc:54
+2022-03-24 16:14:08 INFO  95578  size = 8 -- echo.cc:73
+2022-03-24 16:14:09 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:09 TRACE 95578  onMessage(): tid= 95578 received 4 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:09 INFO  95578  0.0.0.0:2007#2 echo 4 bytes at 1648109649.291019 -- echo.cc:54
+2022-03-24 16:14:09 INFO  95578  size = 9 -- echo.cc:73
+2022-03-24 16:14:09 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:09 TRACE 95578  onMessage(): tid= 95578 received 4 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:09 INFO  95578  0.0.0.0:2007#2 echo 4 bytes at 1648109649.491736 -- echo.cc:54
+2022-03-24 16:14:09 INFO  95578  size = 9 -- echo.cc:73
+2022-03-24 16:14:09 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:09 TRACE 95578  onMessage(): tid= 95578 received 3 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:09 INFO  95578  0.0.0.0:2007#2 echo 3 bytes at 1648109649.667813 -- echo.cc:54
+2022-03-24 16:14:09 INFO  95578  size = 9 -- echo.cc:73
+2022-03-24 16:14:09 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:09 TRACE 95578  onMessage(): tid= 95578 received 3 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:09 INFO  95578  0.0.0.0:2007#2 echo 3 bytes at 1648109649.844343 -- echo.cc:54
+2022-03-24 16:14:09 INFO  95578  size = 9 -- echo.cc:73
+2022-03-24 16:14:10 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:10 TRACE 95578  onMessage(): tid= 95578 received 5 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:10 INFO  95578  0.0.0.0:2007#2 echo 5 bytes at 1648109650.027167 -- echo.cc:54
+2022-03-24 16:14:10 INFO  95578  size = 9 -- echo.cc:73
+2022-03-24 16:14:10 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:10 TRACE 95578  onMessage(): tid= 95578 received 4 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:10 INFO  95578  0.0.0.0:2007#2 echo 4 bytes at 1648109650.203768 -- echo.cc:54
+2022-03-24 16:14:10 INFO  95578  size = 9 -- echo.cc:73
+2022-03-24 16:14:10 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:10 TRACE 95578  onMessage(): tid= 95578 received 4 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:10 INFO  95578  0.0.0.0:2007#2 echo 4 bytes at 1648109650.339097 -- echo.cc:54
+2022-03-24 16:14:10 INFO  95578  size = 9 -- echo.cc:73
+2022-03-24 16:14:10 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:10 TRACE 95578  TimerQueue::handleRead() 1 at 1648109650.826450 -- ../../net/TimerQueue.cc:46
+2022-03-24 16:14:10 INFO  95578  size = 9 -- echo.cc:73
+2022-03-24 16:14:11 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:11 TRACE 95578  onMessage(): tid= 95578 received 4 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:11 INFO  95578  0.0.0.0:2007#1 echo 4 bytes at 1648109651.251020 -- echo.cc:54
+2022-03-24 16:14:11 INFO  95578  size = 10 -- echo.cc:73
+2022-03-24 16:14:11 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:11 TRACE 95578  onMessage(): tid= 95578 received 3 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:11 INFO  95578  0.0.0.0:2007#1 echo 3 bytes at 1648109651.435928 -- echo.cc:54
+2022-03-24 16:14:11 INFO  95578  size = 10 -- echo.cc:73
+2022-03-24 16:14:11 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:11 TRACE 95578  onMessage(): tid= 95578 received 4 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:11 INFO  95578  0.0.0.0:2007#1 echo 4 bytes at 1648109651.611731 -- echo.cc:54
+2022-03-24 16:14:11 INFO  95578  size = 10 -- echo.cc:73
+2022-03-24 16:14:11 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:11 TRACE 95578  onMessage(): tid= 95578 received 3 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:11 INFO  95578  0.0.0.0:2007#1 echo 3 bytes at 1648109651.771856 -- echo.cc:54
+2022-03-24 16:14:11 INFO  95578  size = 10 -- echo.cc:73
+2022-03-24 16:14:11 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:11 TRACE 95578  onMessage(): tid= 95578 received 5 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:11 INFO  95578  0.0.0.0:2007#1 echo 5 bytes at 1648109651.948093 -- echo.cc:54
+2022-03-24 16:14:11 INFO  95578  size = 10 -- echo.cc:73
+2022-03-24 16:14:12 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:12 TRACE 95578  onMessage(): tid= 95578 received 4 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:12 INFO  95578  0.0.0.0:2007#1 echo 4 bytes at 1648109652.123710 -- echo.cc:54
+2022-03-24 16:14:12 INFO  95578  size = 10 -- echo.cc:73
+2022-03-24 16:14:12 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:12 TRACE 95578  onMessage(): tid= 95578 received 2 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:12 INFO  95578  0.0.0.0:2007#1 echo 2 bytes at 1648109652.284054 -- echo.cc:54
+2022-03-24 16:14:12 INFO  95578  size = 10 -- echo.cc:73
+2022-03-24 16:14:13 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:13 TRACE 95578  onMessage(): tid= 95578 received 6 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:13 INFO  95578  0.0.0.0:2007#2 echo 6 bytes at 1648109653.290788 -- echo.cc:54
+2022-03-24 16:14:13 INFO  95578  size = 11 -- echo.cc:73
+2022-03-24 16:14:13 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:13 TRACE 95578  onMessage(): tid= 95578 received 4 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:13 INFO  95578  0.0.0.0:2007#2 echo 4 bytes at 1648109653.483149 -- echo.cc:54
+2022-03-24 16:14:13 INFO  95578  size = 11 -- echo.cc:73
+2022-03-24 16:14:13 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:13 TRACE 95578  onMessage(): tid= 95578 received 4 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:13 INFO  95578  0.0.0.0:2007#2 echo 4 bytes at 1648109653.675005 -- echo.cc:54
+2022-03-24 16:14:13 INFO  95578  size = 11 -- echo.cc:73
+2022-03-24 16:14:13 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:13 TRACE 95578  TimerQueue::handleRead() 1 at 1648109653.826845 -- ../../net/TimerQueue.cc:46
+2022-03-24 16:14:13 INFO  95578  size = 11 -- echo.cc:73
+2022-03-24 16:14:13 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:13 TRACE 95578  onMessage(): tid= 95578 received 4 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:13 INFO  95578  0.0.0.0:2007#2 echo 4 bytes at 1648109653.867400 -- echo.cc:54
+2022-03-24 16:14:13 INFO  95578  size = 12 -- echo.cc:73
+2022-03-24 16:14:16 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:16 TRACE 95578  TimerQueue::handleRead() 1 at 1648109656.827380 -- ../../net/TimerQueue.cc:46
+2022-03-24 16:14:16 INFO  95578  size = 12 -- echo.cc:73
+2022-03-24 16:14:19 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:19 TRACE 95578  TimerQueue::handleRead() 1 at 1648109659.827681 -- ../../net/TimerQueue.cc:46
+2022-03-24 16:14:19 INFO  95578  size = 12 -- echo.cc:73
+2022-03-24 16:14:22 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:22 TRACE 95578  TimerQueue::handleRead() 1 at 1648109662.828310 -- ../../net/TimerQueue.cc:46
+2022-03-24 16:14:22 INFO  95578  size = 11 -- echo.cc:73
+2022-03-24 16:14:25 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:25 TRACE 95578  onMessage(): tid= 95578 received 7 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:25 INFO  95578  0.0.0.0:2007#2 echo 7 bytes at 1648109665.419717 -- echo.cc:54
+2022-03-24 16:14:25 INFO  95578  size = 12 -- echo.cc:73
+2022-03-24 16:14:25 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:25 TRACE 95578  TimerQueue::handleRead() 1 at 1648109665.828847 -- ../../net/TimerQueue.cc:46
+2022-03-24 16:14:25 INFO  95578  size = 11 -- echo.cc:73
+2022-03-24 16:14:26 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:26 TRACE 95578  onMessage(): tid= 95578 received 6 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:26 INFO  95578  0.0.0.0:2007#1 echo 6 bytes at 1648109666.739000 -- echo.cc:54
+2022-03-24 16:14:26 INFO  95578  size = 12 -- echo.cc:73
+2022-03-24 16:14:26 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:26 TRACE 95578  onMessage(): tid= 95578 received 4 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:26 INFO  95578  0.0.0.0:2007#1 echo 4 bytes at 1648109666.970335 -- echo.cc:54
+2022-03-24 16:14:26 INFO  95578  size = 12 -- echo.cc:73
+2022-03-24 16:14:27 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:27 TRACE 95578  onMessage(): tid= 95578 received 4 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:27 INFO  95578  0.0.0.0:2007#1 echo 4 bytes at 1648109667.170745 -- echo.cc:54
+2022-03-24 16:14:27 INFO  95578  size = 12 -- echo.cc:73
+2022-03-24 16:14:27 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:27 TRACE 95578  onMessage(): tid= 95578 received 4 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:27 INFO  95578  0.0.0.0:2007#1 echo 4 bytes at 1648109667.354652 -- echo.cc:54
+2022-03-24 16:14:27 INFO  95578  size = 12 -- echo.cc:73
+2022-03-24 16:14:27 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:27 TRACE 95578  onMessage(): tid= 95578 received 4 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:27 INFO  95578  0.0.0.0:2007#1 echo 4 bytes at 1648109667.546520 -- echo.cc:54
+2022-03-24 16:14:27 INFO  95578  size = 12 -- echo.cc:73
+2022-03-24 16:14:28 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:28 TRACE 95578  onMessage(): tid= 95578 received 6 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:28 INFO  95578  0.0.0.0:2007#2 echo 6 bytes at 1648109668.738769 -- echo.cc:54
+2022-03-24 16:14:28 INFO  95578  size = 13 -- echo.cc:73
+2022-03-24 16:14:28 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:28 TRACE 95578  TimerQueue::handleRead() 1 at 1648109668.829320 -- ../../net/TimerQueue.cc:46
+2022-03-24 16:14:28 INFO  95578  size = 12 -- echo.cc:73
+2022-03-24 16:14:29 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:29 TRACE 95578  onMessage(): tid= 95578 received 5 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:29 INFO  95578  0.0.0.0:2007#2 echo 5 bytes at 1648109669.083034 -- echo.cc:54
+2022-03-24 16:14:29 INFO  95578  size = 13 -- echo.cc:73
+2022-03-24 16:14:30 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:30 TRACE 95578  onMessage(): tid= 95578 received 7 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:30 INFO  95578  0.0.0.0:2007#2 echo 7 bytes at 1648109670.595012 -- echo.cc:54
+2022-03-24 16:14:30 INFO  95578  size = 13 -- echo.cc:73
+2022-03-24 16:14:30 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:30 TRACE 95578  onMessage(): tid= 95578 received 4 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:30 INFO  95578  0.0.0.0:2007#2 echo 4 bytes at 1648109670.963277 -- echo.cc:54
+2022-03-24 16:14:30 INFO  95578  size = 13 -- echo.cc:73
+2022-03-24 16:14:31 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:31 TRACE 95578  onMessage(): tid= 95578 received 4 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:31 INFO  95578  0.0.0.0:2007#2 echo 4 bytes at 1648109671.283143 -- echo.cc:54
+2022-03-24 16:14:31 INFO  95578  size = 13 -- echo.cc:73
+2022-03-24 16:14:31 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:31 TRACE 95578  onMessage(): tid= 95578 received 4 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:31 INFO  95578  0.0.0.0:2007#2 echo 4 bytes at 1648109671.562550 -- echo.cc:54
+2022-03-24 16:14:31 INFO  95578  size = 13 -- echo.cc:73
+2022-03-24 16:14:31 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:31 TRACE 95578  onMessage(): tid= 95578 received 4 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:31 INFO  95578  0.0.0.0:2007#2 echo 4 bytes at 1648109671.827049 -- echo.cc:54
+2022-03-24 16:14:31 INFO  95578  size = 13 -- echo.cc:73
+2022-03-24 16:14:31 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:31 TRACE 95578  TimerQueue::handleRead() 1 at 1648109671.829459 -- ../../net/TimerQueue.cc:46
+2022-03-24 16:14:31 INFO  95578  size = 11 -- echo.cc:73
+2022-03-24 16:14:32 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:32 TRACE 95578  onMessage(): tid= 95578 received 4 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:32 INFO  95578  0.0.0.0:2007#2 echo 4 bytes at 1648109672.114478 -- echo.cc:54
+2022-03-24 16:14:32 INFO  95578  size = 12 -- echo.cc:73
+2022-03-24 16:14:32 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:32 TRACE 95578  onMessage(): tid= 95578 received 4 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:32 INFO  95578  0.0.0.0:2007#2 echo 4 bytes at 1648109672.370888 -- echo.cc:54
+2022-03-24 16:14:32 INFO  95578  size = 12 -- echo.cc:73
+2022-03-24 16:14:32 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:32 TRACE 95578  onMessage(): tid= 95578 received 4 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:32 INFO  95578  0.0.0.0:2007#2 echo 4 bytes at 1648109672.674428 -- echo.cc:54
+2022-03-24 16:14:32 INFO  95578  size = 12 -- echo.cc:73
+2022-03-24 16:14:32 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:32 TRACE 95578  onMessage(): tid= 95578 received 4 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:32 INFO  95578  0.0.0.0:2007#2 echo 4 bytes at 1648109672.930314 -- echo.cc:54
+2022-03-24 16:14:32 INFO  95578  size = 12 -- echo.cc:73
+2022-03-24 16:14:33 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:33 TRACE 95578  onMessage(): tid= 95578 received 4 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:33 INFO  95578  0.0.0.0:2007#2 echo 4 bytes at 1648109673.258359 -- echo.cc:54
+2022-03-24 16:14:33 INFO  95578  size = 12 -- echo.cc:73
+2022-03-24 16:14:34 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:34 TRACE 95578  onMessage(): tid= 95578 received 7 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:34 INFO  95578  0.0.0.0:2007#1 echo 7 bytes at 1648109674.755188 -- echo.cc:54
+2022-03-24 16:14:34 INFO  95578  size = 13 -- echo.cc:73
+2022-03-24 16:14:34 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:34 TRACE 95578  TimerQueue::handleRead() 1 at 1648109674.829654 -- ../../net/TimerQueue.cc:46
+2022-03-24 16:14:34 INFO  95578  size = 11 -- echo.cc:73
+2022-03-24 16:14:35 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:35 TRACE 95578  onMessage(): tid= 95578 received 4 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:35 INFO  95578  0.0.0.0:2007#1 echo 4 bytes at 1648109675.010537 -- echo.cc:54
+2022-03-24 16:14:35 INFO  95578  size = 12 -- echo.cc:73
+2022-03-24 16:14:35 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:35 TRACE 95578  onMessage(): tid= 95578 received 4 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:35 INFO  95578  0.0.0.0:2007#1 echo 4 bytes at 1648109675.290339 -- echo.cc:54
+2022-03-24 16:14:35 INFO  95578  size = 12 -- echo.cc:73
+2022-03-24 16:14:35 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:35 TRACE 95578  onMessage(): tid= 95578 received 4 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:35 INFO  95578  0.0.0.0:2007#1 echo 4 bytes at 1648109675.594590 -- echo.cc:54
+2022-03-24 16:14:35 INFO  95578  size = 12 -- echo.cc:73
+2022-03-24 16:14:35 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:35 TRACE 95578  onMessage(): tid= 95578 received 4 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:14:35 INFO  95578  0.0.0.0:2007#1 echo 4 bytes at 1648109675.914527 -- echo.cc:54
+2022-03-24 16:14:35 INFO  95578  size = 12 -- echo.cc:73
+2022-03-24 16:14:37 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:37 TRACE 95578  TimerQueue::handleRead() 1 at 1648109677.829885 -- ../../net/TimerQueue.cc:46
+2022-03-24 16:14:37 INFO  95578  size = 10 -- echo.cc:73
+2022-03-24 16:14:40 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:40 TRACE 95578  TimerQueue::handleRead() 1 at 1648109680.830024 -- ../../net/TimerQueue.cc:46
+2022-03-24 16:14:40 INFO  95578  size = 8 -- echo.cc:73
+2022-03-24 16:14:43 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:43 TRACE 95578  TimerQueue::handleRead() 1 at 1648109683.830557 -- ../../net/TimerQueue.cc:46
+2022-03-24 16:14:43 INFO  95578  size = 7 -- echo.cc:73
+2022-03-24 16:14:46 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:46 TRACE 95578  TimerQueue::handleRead() 1 at 1648109686.830999 -- ../../net/TimerQueue.cc:46
+2022-03-24 16:14:46 INFO  95578  size = 7 -- echo.cc:73
+2022-03-24 16:14:49 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:49 TRACE 95578  TimerQueue::handleRead() 1 at 1648109689.831300 -- ../../net/TimerQueue.cc:46
+2022-03-24 16:14:49 INFO  95578  size = 7 -- echo.cc:73
+2022-03-24 16:14:52 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:52 TRACE 95578  TimerQueue::handleRead() 1 at 1648109692.831569 -- ../../net/TimerQueue.cc:46
+2022-03-24 16:14:52 INFO  95578  size = 6 -- echo.cc:73
+2022-03-24 16:14:55 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:55 TRACE 95578  TimerQueue::handleRead() 1 at 1648109695.831700 -- ../../net/TimerQueue.cc:46
+2022-03-24 16:14:55 INFO  95578  size = 4 -- echo.cc:73
+2022-03-24 16:14:58 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:14:58 TRACE 95578  TimerQueue::handleRead() 1 at 1648109698.831971 -- ../../net/TimerQueue.cc:46
+2022-03-24 16:14:58 INFO  95578  size = 3 -- echo.cc:73
+2022-03-24 16:15:01 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:15:01 TRACE 95578  TimerQueue::handleRead() 1 at 1648109701.832171 -- ../../net/TimerQueue.cc:46
+2022-03-24 16:15:01 INFO  95578  size = 1 -- echo.cc:73
+2022-03-24 16:15:04 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:15:04 TRACE 95578  TimerQueue::handleRead() 1 at 1648109704.832784 -- ../../net/TimerQueue.cc:46
+2022-03-24 16:15:04 INFO  95578  size = 0 -- echo.cc:73
+2022-03-24 16:15:07 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:15:07 TRACE 95578  TimerQueue::handleRead() 1 at 1648109707.833322 -- ../../net/TimerQueue.cc:46
+2022-03-24 16:15:07 INFO  95578  size = 0 -- echo.cc:73
+2022-03-24 16:15:10 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:15:10 TRACE 95578  TimerQueue::handleRead() 1 at 1648109710.833609 -- ../../net/TimerQueue.cc:46
+2022-03-24 16:15:10 INFO  95578  size = 0 -- echo.cc:73
+2022-03-24 16:15:13 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:15:13 TRACE 95578  TimerQueue::handleRead() 1 at 1648109713.834268 -- ../../net/TimerQueue.cc:46
+2022-03-24 16:15:13 INFO  95578  size = 0 -- echo.cc:73
+2022-03-24 16:15:16 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:15:16 TRACE 95578  TimerQueue::handleRead() 1 at 1648109716.834376 -- ../../net/TimerQueue.cc:46
+2022-03-24 16:15:16 INFO  95578  size = 0 -- echo.cc:73
+2022-03-24 16:15:19 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:15:19 TRACE 95578  TimerQueue::handleRead() 1 at 1648109719.834986 -- ../../net/TimerQueue.cc:46
+2022-03-24 16:15:19 INFO  95578  size = 0 -- echo.cc:73
+2022-03-24 16:15:22 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:15:22 TRACE 95578  TimerQueue::handleRead() 1 at 1648109722.835855 -- ../../net/TimerQueue.cc:46
+2022-03-24 16:15:22 INFO  95578  size = 0 -- echo.cc:73
+2022-03-24 16:15:25 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:15:25 TRACE 95578  TimerQueue::handleRead() 1 at 1648109725.836518 -- ../../net/TimerQueue.cc:46
+2022-03-24 16:15:25 INFO  95578  size = 0 -- echo.cc:73
+2022-03-24 16:15:28 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:15:28 TRACE 95578  TimerQueue::handleRead() 1 at 1648109728.837305 -- ../../net/TimerQueue.cc:46
+2022-03-24 16:15:28 INFO  95578  size = 0 -- echo.cc:73
+2022-03-24 16:15:31 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:15:31 TRACE 95578  TimerQueue::handleRead() 1 at 1648109731.838106 -- ../../net/TimerQueue.cc:46
+2022-03-24 16:15:31 INFO  95578  size = 0 -- echo.cc:73
+2022-03-24 16:15:34 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:15:34 TRACE 95578  TimerQueue::handleRead() 1 at 1648109734.838202 -- ../../net/TimerQueue.cc:46
+2022-03-24 16:15:34 INFO  95578  size = 0 -- echo.cc:73
+2022-03-24 16:15:37 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:15:37 TRACE 95578  TimerQueue::handleRead() 1 at 1648109737.838322 -- ../../net/TimerQueue.cc:46
+2022-03-24 16:15:37 INFO  95578  size = 0 -- echo.cc:73
+2022-03-24 16:15:40 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:15:40 TRACE 95578  TimerQueue::handleRead() 1 at 1648109740.838541 -- ../../net/TimerQueue.cc:46
+2022-03-24 16:15:40 INFO  95578  size = 0 -- echo.cc:73
+2022-03-24 16:15:43 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:15:43 TRACE 95578  TimerQueue::handleRead() 1 at 1648109743.839437 -- ../../net/TimerQueue.cc:46
+2022-03-24 16:15:43 INFO  95578  size = 0 -- echo.cc:73
+2022-03-24 16:15:46 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:15:46 TRACE 95578  TimerQueue::handleRead() 1 at 1648109746.840129 -- ../../net/TimerQueue.cc:46
+2022-03-24 16:15:46 INFO  95578  size = 0 -- echo.cc:73
+2022-03-24 16:15:49 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:15:49 TRACE 95578  TimerQueue::handleRead() 1 at 1648109749.840414 -- ../../net/TimerQueue.cc:46
+2022-03-24 16:15:49 INFO  95578  size = 0 -- echo.cc:73
+2022-03-24 16:15:52 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:15:52 TRACE 95578  TimerQueue::handleRead() 1 at 1648109752.840552 -- ../../net/TimerQueue.cc:46
+2022-03-24 16:15:52 INFO  95578  size = 0 -- echo.cc:73
+2022-03-24 16:15:55 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:15:55 TRACE 95578  TimerQueue::handleRead() 1 at 1648109755.840993 -- ../../net/TimerQueue.cc:46
+2022-03-24 16:15:55 INFO  95578  size = 0 -- echo.cc:73
+2022-03-24 16:15:58 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:15:58 TRACE 95578  TimerQueue::handleRead() 1 at 1648109758.841656 -- ../../net/TimerQueue.cc:46
+2022-03-24 16:15:58 INFO  95578  size = 0 -- echo.cc:73
+2022-03-24 16:16:01 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:16:01 TRACE 95578  TimerQueue::handleRead() 1 at 1648109761.842349 -- ../../net/TimerQueue.cc:46
+2022-03-24 16:16:01 INFO  95578  size = 0 -- echo.cc:73
+2022-03-24 16:16:02 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:16:02 TRACE 95578  onMessage(): tid= 95578 received 3 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:16:02 INFO  95578  0.0.0.0:2007#2 echo 3 bytes at 1648109762.800388 -- echo.cc:54
+2022-03-24 16:16:03 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:16:03 TRACE 95578  onMessage(): tid= 95578 received 6 bytes -- ../../net/TcpConnection.cc:147
+2022-03-24 16:16:03 INFO  95578  0.0.0.0:2007#2 echo 6 bytes at 1648109763.751743 -- echo.cc:54
+2022-03-24 16:16:04 TRACE 95578  1 events happended -- ../../net/EPoller.cc:50
+2022-03-24 16:16:04 TRACE 95578  TimerQueue::handleRead() 1 at 1648109764.842777 -- ../../net/TimerQueue.cc:46
+2022-03-24 16:16:04 INFO  95578  size = 0 -- echo.cc:73

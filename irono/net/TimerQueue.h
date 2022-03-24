@@ -8,6 +8,7 @@
 #include "../base/Mutex.h"
 #include "Callbacks.h"
 #include "Channel.h"
+#include "TimerId.h"
 
 namespace irono {
 

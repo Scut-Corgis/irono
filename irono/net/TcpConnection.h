@@ -5,7 +5,7 @@
 #include "../base/noncopyable.h"
 #include <memory>
 #include "Buffer.h"
-
+#include <boost/any.hpp>
 namespace irono
 {
 
@@ -60,6 +60,12 @@ public:
     void connectEstablished();   // should be called only once
     //当TcpServer从map移除自己时调用
     void connectDestroyed();
+
+    void setContext(const boost::any& context)
+    { context_ = context; }
+
+    const boost::any& getContext() const
+    { return context_; }
 private:
     enum StateE { kConnecting, kConnected, kDisconnecting, kDisconnected, };
 
@@ -87,6 +93,8 @@ private:
     CloseCallback closeCallback_;
     Buffer inputBuffer_;
     Buffer outputBuffer_;
+    //存放用户的数据，用any可存放任意数据
+    boost::any context_;
 };
 
 typedef std::shared_ptr<TcpConnection> TcpConnectionPtr;

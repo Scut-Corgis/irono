@@ -91,6 +91,7 @@ void Thread::start() {
         delete data;
     }
     else {
+        // 主线程等待子线程初始化完后再前进
         latch_.wait();
         assert(tid_ > 0);
     }
